@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>CPAT Campinas — Vagas de Emprego</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&display=swap">
+<style>
+body{margin:0}
+.ct{max-width:1120px;margin:0 auto;padding:0 32px;box-sizing:border-box}
+.lift{transition:box-shadow .15s}.lift:hover{box-shadow:0 6px 18px rgba(0,0,0,.2)}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 24px;border-radius:100px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none;box-sizing:border-box;border:2px solid transparent}
+.ib{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;border-radius:100px;border:0;background:transparent;color:inherit;font:inherit;font-weight:700;cursor:pointer}
+.ib:hover{background:rgba(127,127,127,.25)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #FFCD07;outline-offset:2px}
+.nv{position:relative;list-style:none}
+.nv-sub{display:none;position:absolute;left:0;top:100%;min-width:230px;margin:0;padding:8px;list-style:none;background:var(--sf);border:1px solid var(--bd);border-top:0;border-radius:0 0 12px 12px;box-shadow:0 10px 24px rgba(0,0,0,.25);z-index:40}
+.nv:hover>.nv-sub,.nv:focus-within>.nv-sub{display:block}
+.nv-sub a{display:flex;align-items:center;min-height:44px;padding:0 14px;color:var(--fg);text-decoration:none;font-weight:600;font-size:0.875rem;border-radius:8px}
+.nv-sub a:hover{background:var(--tint);color:var(--pt)}
+.skip{position:absolute;left:-999px;top:8px;background:#FFCD07;color:#000;padding:8px 16px;z-index:10;font-weight:700}.skip:focus{left:8px}
+</style>
+</helmet>
+<div style="{{vars}}; font-family:'Raleway','Rawline',system-ui,sans-serif; font-size:{{fs}}px; line-height:1.5; background:var(--bg); color:var(--fg)">
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+<div style="position:sticky; top:45%; height:0; z-index:30"><div style="display:flex; flex-direction:column; align-items:flex-end; gap:8px">
+<button type="button" onClick="{{toggleVl}}" aria-expanded="{{vl}}" aria-label="VLibras: tradutor de português para Libras" style="display:flex; flex-direction:column; align-items:center; gap:2px; width:64px; padding:10px 6px; border:0; border-radius:12px 0 0 12px; background:#1351B4; color:#fff; font:inherit; font-size:0.6875em; font-weight:800; cursor:pointer; box-shadow:0 4px 14px rgba(0,0,0,.35)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V5a1.5 1.5 0 0 1 3 0v6M11 10V3.5a1.5 1.5 0 0 1 3 0V10M14 10V5a1.5 1.5 0 0 1 3 0v8a7 7 0 0 1-7 7h-1a6 6 0 0 1-5-3l-1.5-3a1.5 1.5 0 0 1 2.5-1.5L8 15"/></svg>VLibras</button>
+<sc-if value="{{vl}}" hint-placeholder-val="{{ false }}"><div role="dialog" aria-label="VLibras" style="width:220px; margin-right:8px; background:var(--sf); color:var(--fg); border:1px solid var(--bd); border-radius:12px; padding:16px; box-shadow:0 8px 28px rgba(0,0,0,.3); font-size:0.8125em"><strong style="color:var(--pt)">VLibras</strong><div style="margin:10px 0; height:110px; border-radius:8px; background:var(--tint); display:flex; align-items:center; justify-content:center; color:var(--mu)">Avatar em Libras</div>Simulação: o widget oficial do governo federal é carregado no projeto Angular.</div></sc-if>
+</div></div>
+
+<div style="background:var(--ft); color:#fff">
+<div class="ct" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px; min-height:48px">
+<span style="font-size:0.8125em; font-weight:600">Prefeitura Municipal de Campinas · Secretaria de Trabalho e Renda</span>
+<div style="display:flex; flex-wrap:wrap; align-items:center; gap:4px">
+<span style="font-size:0.8125em; margin-right:4px">Texto</span>
+<button class="ib" onClick="{{fsDown}}" aria-label="Diminuir tamanho da fonte">A−</button>
+<button class="ib" onClick="{{fsReset}}" aria-label="Tamanho padrão da fonte">A</button>
+<button class="ib" onClick="{{fsUp}}" aria-label="Aumentar tamanho da fonte">A+</button>
+<button class="btn" onClick="{{toggleDark}}" aria-pressed="{{darkPressed}}" style="min-height:36px; padding:0 16px; margin-left:8px; background:transparent; color:#fff; border-color:#fff; font-size:0.8125em">{{darkLabel}}</button>
+</div>
+</div>
+</div>
+
+<header style="background:var(--sf); border-bottom:1px solid var(--bd)">
+<div class="ct" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:20px; padding-top:16px; padding-bottom:16px">
+<a href="Main.dc.html" style="display:flex; align-items:center; gap:14px; text-decoration:none; color:var(--pt)" aria-label="CPAT SINE — página inicial">
+<svg width="52" height="52" viewBox="0 0 52 52" fill="none" aria-hidden="true"><path d="M10 24a16 16 0 0 1 32 0z" fill="currentColor"/><rect x="6" y="24" width="40" height="5" rx="2.5" fill="currentColor"/><path d="M14 34h24l-3 16H17z" fill="currentColor"/><path d="M26 34l-4 6 4 10 4-10z" fill="var(--sf)"/></svg>
+<div><div style="font-size:1.75em; font-weight:800; line-height:1">CPAT <span style="color:var(--fg)">SINE</span></div><div style="font-size:0.75em; font-weight:600; color:var(--mu); margin-top:4px">Centro Público de Apoio ao Trabalhador</div></div>
+</a>
+<form role="search" onSubmit="{{noop}}" style="display:flex; flex:1 1 280px; max-width:460px">
+<input type="search" aria-label="Pesquisar no site" placeholder="Pesquisar vagas, serviços e notícias" style="flex:1; min-width:0; min-height:44px; padding:0 18px; font:inherit; font-size:0.9375em; border:1px solid var(--bd); border-right:0; border-radius:100px 0 0 100px; background:var(--bg); color:var(--fg)">
+<button type="submit" class="btn" aria-label="Pesquisar" style="border-radius:0 100px 100px 0; padding:0 18px; background:var(--pb); color:#fff"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3"/></svg></button>
+</form>
+</div>
+</header>
+
+<nav aria-label="Menu principal" style="background:var(--nv)">
+<ul class="ct" style="display:flex; flex-wrap:wrap; list-style:none; margin:0 auto; padding-top:0; padding-bottom:0">
+<sc-for list="{{nav}}" as="n" hint-placeholder-count="8">
+<li class="nv"><a href="{{n.href}}" aria-current="{{n.cur}}" aria-haspopup="{{n.pop}}" style="display:flex; align-items:center; gap:6px; min-height:52px; padding:0 16px; color:#fff; text-decoration:none; font-weight:700; font-size:0.875em; border-bottom:4px solid {{n.bar}}">{{n.label}}<sc-if value="{{n.hasSub}}" hint-placeholder-val="{{ false }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></sc-if></a>
+<sc-if value="{{n.hasSub}}" hint-placeholder-val="{{ false }}"><ul class="nv-sub" aria-label="Submenu de {{n.label}}"><sc-for list="{{n.sub}}" as="c" hint-placeholder-count="4"><li><a href="{{c.href}}">{{c.label}}</a></li></sc-for></ul></sc-if></li>
+</sc-for>
+</ul>
+</nav>
+
+<section style="background:var(--hero); color:#fff; overflow:hidden">
+<div class="ct" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:40px; padding-top:48px; padding-bottom:48px">
+<div style="flex:1 1 400px; max-width:620px">
+<nav aria-label="Você está aqui" style="font-size:0.875em; margin-bottom:16px"><a href="Main.dc.html" style="color:#fff; font-weight:700">Início</a> › Vagas</nav>
+<h1 style="margin:0 0 16px; font-size:2.5em; line-height:1.15; font-weight:800">Vagas de emprego</h1>
+<p style="margin:0; font-size:1.125em">O atendimento presencial é feito mediante agendamento prévio pelo Portal do Cidadão. Você também pode se candidatar pelo Emprega Brasil ou falar com a gente pelo chat.</p>
+</div>
+<div style="flex:1 1 300px; display:flex; justify-content:center"><svg viewBox="0 0 360 220" width="100%" style="max-width:340px; height:auto" role="img" aria-label="Ilustração de cartões de vagas empilhados e uma lupa"><circle cx="190" cy="112" r="96" fill="#fff" fill-opacity=".1"/><g><rect x="80" y="26" width="200" height="54" rx="14" fill="#fff"/><circle cx="110" cy="53" r="12" fill="#FFCD07"/><rect x="134" y="42" width="100" height="9" rx="4.5" fill="#1351B4"/><rect x="134" y="58" width="70" height="7" rx="3.5" fill="#C9D6EC"/><rect x="100" y="92" width="200" height="54" rx="14" fill="#FFCD07"/><circle cx="130" cy="119" r="12" fill="#fff"/><path d="M124 119l4 4 8-8" stroke="#071D41" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="154" y="108" width="100" height="9" rx="4.5" fill="#071D41"/><rect x="154" y="124" width="70" height="7" rx="3.5" fill="#071D41" fill-opacity=".45"/><rect x="70" y="158" width="200" height="54" rx="14" fill="#fff"/><circle cx="100" cy="185" r="12" fill="#C9D6EC"/><rect x="124" y="174" width="100" height="9" rx="4.5" fill="#1351B4"/><rect x="124" y="190" width="70" height="7" rx="3.5" fill="#C9D6EC"/></g><circle cx="284" cy="150" r="30" fill="none" stroke="#fff" stroke-width="9"/><path d="M306 172l24 24" stroke="#fff" stroke-width="10" stroke-linecap="round"/></svg></div>
+</div>
+</section>
+<main id="conteudo" class="ct" style="padding-top:56px; padding-bottom:88px">
+
+<div role="status" style="display:flex; gap:12px; align-items:flex-start; background:var(--wn); color:var(--wnt); border-left:6px solid #FFCD07; border-radius:4px; padding:16px 20px; margin-bottom:24px; font-size:0.9375em">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M12 3l10 18H2z M12 10v5 M12 18h.01"/></svg>
+<span><strong>Como funciona o painel:</strong> quando uma vaga é retirada do painel, isso não significa que ela foi preenchida, e sim que o limite de encaminhamentos da empresa foi atingido.</span>
+</div>
+
+<div style="display:flex; flex-wrap:wrap; gap:48px; align-items:flex-start">
+<aside aria-label="Filtros de vagas" style="flex:0 1 340px; min-width:280px; background:var(--sf); border:1px solid var(--bd); border-radius:16px; padding:28px; display:flex; flex-direction:column; gap:24px">
+<div style="display:flex; align-items:center; justify-content:space-between"><h2 style="margin:0; font-size:1.25em; font-weight:800; color:var(--pt)">Filtros</h2><button type="button" onClick="{{clear}}" style="min-height:44px; padding:0 8px; background:none; border:0; font:inherit; font-weight:700; color:var(--pt); text-decoration:underline; cursor:pointer">Limpar filtros</button></div>
+<div style="display:flex; flex-direction:column; gap:6px"><label for="f-q" style="font-weight:700; font-size:0.875em">Título da vaga</label><input id="f-q" value="{{q}}" onInput="{{setQ}}" placeholder="Ex.: atendente, auxiliar…" style="min-height:44px; padding:0 14px; font:inherit; border:1px solid var(--bi); border-radius:4px; background:var(--bg); color:var(--fg)"></div>
+<div style="display:flex; flex-direction:column; gap:6px"><label for="f-o" style="font-weight:700; font-size:0.875em">Ordenar por</label><select id="f-o" value="{{ord}}" onChange="{{setOrd}}" style="min-height:44px; padding:0 14px; font:inherit; border:1px solid var(--bi); border-radius:4px; background:var(--bg); color:var(--fg)"><option value="recent">Mais recentes</option><option value="old">Menos recentes</option></select></div>
+<div style="display:flex; flex-direction:column; gap:6px"><label for="f-e" style="font-weight:700; font-size:0.875em">Escolaridade</label><select id="f-e" value="{{esc}}" onChange="{{setEsc}}" style="min-height:44px; padding:0 14px; font:inherit; border:1px solid var(--bi); border-radius:4px; background:var(--bg); color:var(--fg)"><option>Todas</option><option>Fundamental incompleto</option><option>Fundamental completo</option><option>Médio incompleto</option><option>Médio completo</option></select></div>
+<div style="display:flex; flex-direction:column; gap:6px"><label for="f-m" style="font-weight:700; font-size:0.875em">Município</label><select id="f-m" value="{{mun}}" onChange="{{setMun}}" style="min-height:44px; padding:0 14px; font:inherit; border:1px solid var(--bi); border-radius:4px; background:var(--bg); color:var(--fg)"><option>Todos</option><option>Campinas</option><option>Hortolândia</option><option>Valinhos</option></select></div>
+<fieldset style="border:0; margin:0; padding:0"><legend style="font-weight:700; font-size:0.875em; padding:0; margin-bottom:4px">Modelo de trabalho</legend>
+<sc-for list="{{modelos}}" as="o" hint-placeholder-count="3"><label style="display:flex; align-items:center; gap:10px; min-height:44px; font-size:0.9375em"><input type="checkbox" checked="{{o.on}}" onChange="{{o.pick}}" style="width:20px; height:20px; flex:none; accent-color:#2D6BD1">{{o.label}}</label></sc-for>
+</fieldset>
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 16px; background:var(--tint); border-radius:12px"><span id="pcd-l" style="font-weight:700">Vagas exclusivas para PCD</span><button type="button" role="switch" aria-checked="{{pcd}}" aria-labelledby="pcd-l" onClick="{{togglePcd}}" style="position:relative; flex:none; width:52px; height:30px; padding:0; border-radius:100px; border:2px solid var(--pb); background:{{pcdBg}}; cursor:pointer"><i style="position:absolute; top:2px; left:{{pcdLeft}}px; width:22px; height:22px; border-radius:100px; background:{{pcdKnob}}"></i></button></div>
+<fieldset style="border:0; margin:0; padding:0"><legend style="font-weight:700; font-size:0.875em; padding:0; margin-bottom:4px">Tipo de vaga</legend>
+<div style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 8px"><sc-for list="{{tipos}}" as="o" hint-placeholder-count="9"><label style="display:flex; align-items:center; gap:10px; min-height:44px; font-size:0.9375em"><input type="checkbox" checked="{{o.on}}" onChange="{{o.pick}}" style="width:20px; height:20px; flex:none; accent-color:#2D6BD1">{{o.label}}</label></sc-for></div>
+</fieldset>
+</aside>
+
+<section aria-label="Resultados" style="flex:1 1 520px; min-width:0">
+<p aria-live="polite" style="margin:0 0 24px; font-weight:700">{{count}}</p>
+<div style="display:flex; flex-direction:column; gap:28px">
+<sc-for list="{{rows}}" as="v" hint-placeholder-count="5">
+<article class="lift" style="background:var(--sf); border:1px solid var(--bd); border-left:6px solid var(--pb); border-radius:12px; overflow:hidden">
+<div style="padding:28px 32px 24px; display:flex; flex-direction:column; gap:16px">
+<div style="display:flex; flex-wrap:wrap; align-items:flex-start; justify-content:space-between; gap:12px 20px">
+<h2 style="margin:0; font-size:1.25em; line-height:1.3; font-weight:800; color:var(--pt)">{{v.title}}</h2>
+<div style="display:flex; flex-wrap:wrap; gap:8px"><span style="background:var(--tint); color:var(--pt); font-weight:700; font-size:0.75em; padding:4px 12px; border-radius:100px">{{v.modelo}}</span><span style="background:var(--tint); color:var(--pt); font-weight:700; font-size:0.75em; padding:4px 12px; border-radius:100px">{{v.tipo}}</span><sc-if value="{{v.pcd}}" hint-placeholder-val="{{ false }}"><span style="background:#FFCD07; color:#071D41; font-weight:800; font-size:0.75em; padding:4px 12px; border-radius:100px">Exclusiva PCD</span></sc-if></div>
+</div>
+<div style="display:flex; flex-wrap:wrap; gap:8px 32px; font-size:0.875em; color:var(--mu)">
+<span>Cód. {{v.cod}}</span><span>{{v.esc}}</span><span>Publicada em {{v.data}}</span>
+</div>
+<div style="font-size:0.9375em; color:var(--fg); font-weight:600">{{v.mun}} <span style="color:var(--mu); font-weight:400">· {{v.bairro}}</span></div>
+</div>
+<div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:20px 32px; padding:20px 32px; background:var(--tint); border-top:1px solid var(--bd)">
+<div style="display:flex; flex-wrap:wrap; gap:20px 40px">
+<div><div style="font-size:0.75em; color:var(--mu); margin-bottom:2px">Salário</div><div style="font-weight:800; font-size:1.125em">{{v.sal}}</div></div>
+<div><div style="font-size:0.75em; color:var(--mu); margin-bottom:2px">Vagas</div><div style="font-weight:800; font-size:1.125em">{{v.n}}</div></div>
+</div>
+<div style="display:flex; flex-wrap:wrap; gap:12px"><button type="button" class="btn" onClick="{{v.toggle}}" aria-haspopup="dialog" style="background:transparent; color:var(--pt); border-color:var(--pt)">Ver detalhes</button><a class="btn" href="Atendimento.dc.html" style="background:var(--pb); color:#fff; border-color:var(--pb)">Quero me candidatar</a></div>
+</div>
+
+</article>
+</sc-for>
+</div>
+<sc-if value="{{empty}}" hint-placeholder-val="{{ false }}"><p style="padding:32px; text-align:center; background:var(--sf); border:1px dashed var(--bd); border-radius:8px">Nenhuma vaga encontrada com esses filtros. Tente limpar os filtros.</p></sc-if>
+<p style="margin-top:20px; font-size:0.8125em; color:var(--mu)">Modelo de trabalho, tipo de vaga, datas e dados da empresa são exemplos desta prévia.</p>
+<nav aria-label="Paginação" style="display:flex; gap:8px; justify-content:center; margin-top:32px; flex-wrap:wrap">
+<span class="btn" aria-current="page" style="background:var(--pb); color:#fff; min-width:44px; justify-content:center; padding:0">1</span>
+<a class="btn" href="#" style="min-width:44px; justify-content:center; padding:0; color:var(--pt); border-color:var(--bi)">2</a>
+<a class="btn" href="#" style="min-width:44px; justify-content:center; padding:0; color:var(--pt); border-color:var(--bi)">3</a>
+<a class="btn" href="#" style="color:var(--pt); border-color:var(--bi)">Próxima</a>
+</nav>
+</section>
+</div>
+</main>
+
+<sc-if value="{{modalOpen}}" hint-placeholder-val="{{ false }}">
+<div onClick="{{closeModal}}" onKeyDown="{{onKey}}" style="position:fixed; inset:0; z-index:50; background:rgba(7,29,65,.65); display:flex; align-items:flex-start; justify-content:center; padding:40px 16px; overflow-y:auto; box-sizing:border-box">
+<div role="dialog" aria-modal="true" aria-labelledby="m-t" onClick="{{stop}}" style="width:100%; max-width:760px; background:var(--sf); color:var(--fg); border-radius:16px; box-shadow:0 16px 48px rgba(0,0,0,.45); overflow:hidden">
+<div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; padding:28px 32px 20px; border-bottom:1px solid var(--bd)">
+<div style="flex:1; min-width:0">
+<div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-bottom:12px">
+<button type="button" class="ib" autofocus onClick="{{closeModal}}" aria-label="Fechar detalhes da vaga" style="flex:none; font-size:0.9375em">✕</button>
+<span role="status" aria-live="polite" style="margin-left:auto; font-size:0.75em; font-weight:700; color:var(--pt)">{{shareMsg}}</span>
+<button type="button" class="btn" onClick="{{toggleFav}}" aria-pressed="{{favOn}}" aria-label="{{favLabel}} vaga" title="{{favLabel}}" style="width:44px; min-height:44px; padding:0; justify-content:center; background:{{favBg}}; color:{{favFg}}; border-color:var(--pt)"><svg width="16" height="16" viewBox="0 0 24 24" fill="{{favFill}}" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.6 3 5 6.5 5c2 0 3.5 1.1 5.5 3.3C14 6.1 15.500 5 17.500 5 21 5 22.800 8.600 21.500 11.800 19.500 16.400 12 21 12 21z"/></svg></button>
+<button type="button" class="btn" onClick="{{share}}" style="min-height:44px; padding:0 14px; background:transparent; color:var(--pt); border-color:var(--pt); font-size:0.8125em; gap:6px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.700 0l3-3a4 4 0 0 0-5.700-5.700l-1 1M14 10a4 4 0 0 0-5.700 0l-3 3a4 4 0 0 0 5.700 5.700l1-1"/></svg>Copiar link</button>
+</div>
+<h2 id="m-t" style="margin:0 0 8px; font-size:1.5em; line-height:1.25; font-weight:800; color:var(--pt)">{{m.title}}</h2>
+<div style="display:flex; flex-wrap:wrap; gap:8px"><span style="background:var(--tint); color:var(--pt); font-weight:700; font-size:0.75em; padding:4px 12px; border-radius:100px">{{m.modelo}}</span><span style="background:var(--tint); color:var(--pt); font-weight:700; font-size:0.75em; padding:4px 12px; border-radius:100px">{{m.tipo}}</span><sc-if value="{{m.pcd}}" hint-placeholder-val="{{ false }}"><span style="background:#FFCD07; color:#071D41; font-weight:800; font-size:0.75em; padding:4px 12px; border-radius:100px">Exclusiva PCD</span></sc-if></div>
+</div>
+</div>
+<div style="padding:24px 32px; display:flex; flex-direction:column; gap:28px">
+<div style="display:flex; flex-wrap:wrap; gap:8px 32px; font-size:0.875em; color:var(--mu)"><span>Cód. {{m.cod}}</span><span>{{m.esc}}</span><span>Publicada em {{m.data}}</span><span>{{m.mun}} · {{m.bairro}}</span></div>
+<div style="display:flex; flex-wrap:wrap; gap:16px 48px; padding:16px 20px; background:var(--tint); border-radius:12px"><div><div style="font-size:0.75em; color:var(--mu)">Salário</div><div style="font-weight:800; font-size:1.125em">{{m.sal}}</div></div><div><div style="font-size:0.75em; color:var(--mu)">Vagas</div><div style="font-weight:800; font-size:1.125em">{{m.n}}</div></div><div><div style="font-size:0.75em; color:var(--mu)">Período de inscrição</div><div style="font-weight:800; font-size:1.125em">{{m.periodo}}</div></div></div>
+<section aria-label="Transparência da vaga"><h3 style="margin:0 0 16px; font-size:1.0625em; font-weight:800; color:var(--pt)">Transparência da vaga</h3>
+<dl style="margin:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px 32px">
+<sc-for list="{{m.fields}}" as="f" hint-placeholder-count="6"><div><dt style="font-size:0.8125em; color:var(--mu); font-weight:700">{{f.label}}</dt><dd style="margin:4px 0 0; color:{{f.color}}">{{f.val}}</dd></div></sc-for>
+</dl></section>
+<sc-if value="{{m.temBenef}}" hint-placeholder-val="{{ false }}"><section aria-label="Benefícios"><h3 style="margin:0 0 12px; font-size:1.0625em; font-weight:800; color:var(--pt)">Benefícios</h3>
+<ul style="list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:8px"><sc-for list="{{m.benef}}" as="b" hint-placeholder-count="3"><li style="background:var(--tint); color:var(--pt); font-weight:700; font-size:0.875em; padding:6px 14px; border-radius:100px">{{b}}</li></sc-for></ul></section></sc-if>
+<section aria-label="Informações sobre a entrevista"><h3 style="margin:0 0 8px; font-size:1.0625em; font-weight:800; color:var(--pt)">Informações sobre a entrevista</h3>
+<p style="margin:0">{{m.ent}}</p>
+<sc-if value="{{m.temEtapas}}" hint-placeholder-val="{{ false }}"><div style="margin-top:20px"><div style="font-size:0.8125em; font-weight:700; color:var(--mu); margin-bottom:12px">Etapas do processo</div>
+<ol style="list-style:none; margin:0; padding:0"><sc-for list="{{m.etapas}}" as="e" hint-placeholder-count="8"><li style="display:flex; gap:16px; align-items:center; min-height:48px"><span aria-hidden="true" style="flex:none; width:36px; height:36px; border-radius:100px; background:var(--pb); color:#fff; font-weight:800; display:flex; align-items:center; justify-content:center">{{e.n}}</span><span><span style="display:block; font-size:0.75em; color:var(--mu)">Etapa {{e.n}}</span><span style="font-weight:700">{{e.label}}</span></span></li></sc-for></ol></div></sc-if>
+</section>
+</div>
+<div style="display:flex; flex-wrap:wrap; justify-content:flex-end; gap:12px; padding:20px 32px; background:var(--tint); border-top:1px solid var(--bd)"><button type="button" class="btn" onClick="{{closeModal}}" style="background:transparent; color:var(--pt); border-color:var(--pt)">Fechar</button><a class="btn" href="Atendimento.dc.html" style="background:var(--pb); color:#fff; border-color:var(--pb)">Quero me candidatar</a></div>
+</div>
+</div>
+</sc-if>
+
+<footer style="background:var(--ft); color:#fff; padding:32px 0">
+<div class="ct" style="display:flex; flex-wrap:wrap; gap:24px; justify-content:space-between; font-size:0.875em">
+<span>© 2026 Prefeitura Municipal de Campinas · Secretaria de Trabalho e Renda</span>
+<span style="display:flex; gap:20px; flex-wrap:wrap"><a href="Main.dc.html" style="color:#fff">Início</a><a href="Atendimento.dc.html" style="color:#fff">SAC e Ouvidoria</a><a href="#" style="color:#fff">Política de privacidade (LGPD)</a></span>
+</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":3000}}'>
+class Component extends DCLogic {
+  constructor(p){ super(p); this.state = { dark:false, fsStep:0, q:'', esc:'Todas', mun:'Todos', ord:'recent', modelos:[], tipos:[], pcd:false, sel:null, vl:false, favs:[], copied:'' }; }
+  renderVals(){
+    const s = this.state, self = this;
+    const L = { '--bg':'#F8F8F8','--sf':'#FFFFFF','--fg':'#333333','--mu':'#555555','--pt':'#1351B4','--pb':'#1351B4','--bd':'#CCCCCC','--bi':'#767676','--tint':'#EDF5FF','--nv':'#1351B4','--ft':'#071D41','--hero':'linear-gradient(135deg,#1351B4,#071D41)','--wn':'#FFF5D6','--wnt':'#333333' };
+    const D = { '--bg':'#0B1424','--sf':'#14223A','--fg':'#E9EEF6','--mu':'#B3BFD1','--pt':'#9DBFF7','--pb':'#2D6BD1','--bd':'#2F4468','--bi':'#8397B8','--tint':'#1B2D4B','--nv':'#14223A','--ft':'#060C18','--hero':'linear-gradient(135deg,#1C3F7A,#0A1428)','--wn':'#3A3010','--wnt':'#FFE9A0' };
+    const th = s.dark ? D : L;
+    const R = [
+      ['9312848','Açougueiro','Médio completo','Campinas','Jardim Santa Mônica','R$ 3.186,35',2,'2026-11-10','Presencial','Efetivo',false],
+      ['9326819','Ajudante de carga e descarga','Fundamental incompleto','Hortolândia','Jardim Santa Esmeralda','R$ 2.124,98',10,'2026-11-09','Presencial','Temporário',false],
+      ['9284017','Ajudante de cozinha','Fundamental completo','Campinas','Não informado','R$ 2.460,47',1,'2026-11-12','Presencial','Efetivo',true],
+      ['9310318','Almoxarife','Médio completo','Valinhos','Distrito Industrial Benedito Storani','R$ 2.440,28',1,'2026-11-05','Presencial','Efetivo',false],
+      ['9325869','Assistente administrativo','Médio completo','Campinas','Techno Park','R$ 2.245,00',1,'2026-11-11','Híbrido','Efetivo',true],
+      ['9293962','Atendente balconista','Fundamental completo','Campinas','Não informado','R$ 2.460,47',3,'2026-11-03','Presencial','Intermitente',false],
+      ['9330005','Atendente de farmácia — balconista','Médio completo','Campinas','Não informado','R$ 2.076,24',25,'2026-11-13','Presencial','Efetivo',true],
+      ['9325967','Ajudante de eletricista','Médio completo','Campinas','Sob informação na entrevista','R$ 2.068,01',2,'2026-10-28','Presencial','Terceiro',false],
+      ['9340011','Jovem aprendiz administrativo','Médio incompleto','Campinas','Centro','R$ 1.142,33',4,'2026-11-08','Híbrido','Aprendiz',false],
+      ['9340012','Estagiário de tecnologia','Médio completo','Campinas','Centro','R$ 1.400,00',2,'2026-11-07','Remoto','Estágio',false],
+      ['9340013','Analista de marketing digital','Médio completo','Campinas','Cambuí','R$ 3.800,00',1,'2026-11-06','Remoto','Pessoa jurídica',false],
+      ['9340014','Designer gráfico','Médio completo','Valinhos','Não informado','R$ 2.900,00',1,'2026-11-02','Remoto','Freelancer',true],
+      ['9340015','Trainee administrativo','Médio completo','Campinas','Techno Park','R$ 2.700,00',3,'2026-10-30','Híbrido','Trainee',false]
+    ].map(r => ({ cod:r[0], title:r[1], esc:r[2], mun:r[3], bairro:r[4], sal:r[5], n:r[6], iso:r[7], data:r[7].split('-').reverse().join('/'), modelo:r[8], tipo:r[9], pcd:r[10] }));
+    const DSC = ['Atender e orientar clientes, organizar o setor de trabalho e cumprir as rotinas definidas pela empresa.','Executar as tarefas do dia a dia do setor, registrar as atividades e seguir as normas de segurança.','Apoiar a equipe nas atividades operacionais, manter o ambiente organizado e cumprir metas da área.'];
+    const EX = ['Sem experiência exigida','6 meses na função','1 ano na função'];
+    const EN = ['Presencial, após encaminhamento do CPAT. Levar RG, CPF e carteira de trabalho.','On-line, por vídeo. A empresa entra em contato por telefone.','Presencial na empresa, com agendamento pelo CPAT.'];
+    R.forEach((v,i) => { v.razao = i%3===0 ? '' : 'Empresa Exemplo ' + (i+1) + ' Ltda. · Nome fantasia: Exemplo ' + (i+1); v.cnpj = i%3===0 ? '' : '12.345.678/0001-90'; v.desc = DSC[i%3]; v.exp = v.esc + ' · ' + EX[i%3]; v.hor = i%2===0 ? 'Segunda a sexta, das 8h às 17h' : ''; v.loc = i%2===0 ? 'Rua Exemplo, 123 — ' + v.bairro + ', ' + v.mun : ''; v.ent = EN[i%3]; });
+    const fld = (label, val) => ({ label, val: val || 'Não informado', color: val ? 'var(--fg)' : 'var(--mu)' });
+    const ST = ['Cadastro','Entrevista RH','Teste Comportamental','Teste de Conhecimento Técnico','Entrevista Gestor','Carta oferta','Exame Médico Pré-admissional','Contratação'];
+    R.forEach((v,i) => { v.benef = i%2===0 ? ['Vale-transporte','Vale-refeição','Plano de saúde'] : []; const et = i%3===1 ? ST : (i%3===2 ? ['Cadastro','Entrevista RH','Contratação'] : []); v.etapas = et.map((t,k) => ({ n: k+1, label: t, last: k===et.length-1 })); v.temBenef = v.benef.length > 0; v.temEtapas = v.etapas.length > 0; v.fim = i%2===0 ? ['2026-11-30','2026-12-15','2026-12-20','2026-12-05','2026-12-10','2026-12-18','2026-11-28'][(i/2)|0] : ''; v.periodo = v.fim ? v.data + ' a ' + v.fim.split('-').reverse().join('/') : 'A partir de ' + v.data; v.toggle = () => self.setState({ sel: v.cod }); v.fields = [ fld('Razão social e nome fantasia', v.razao), fld('CNPJ de quem fará a contratação', v.cnpj), fld('Descrição das atividades do cargo', v.desc), fld('Escolaridade e experiência exigidas', v.exp), fld('Horário de trabalho', v.hor), fld('Local de trabalho e endereço', v.loc) ]; });
+    const m = R.find(x => x.cod === s.sel) || { fields: [], benef: [], etapas: [] };
+    const tog = (key, val) => () => { const a = s[key]; self.setState({ [key]: a.includes(val) ? a.filter(x => x !== val) : a.concat([val]) }); };
+    const rows = R.filter(v => v.title.toLowerCase().includes(s.q.toLowerCase()) && (s.esc==='Todas' || v.esc===s.esc) && (s.mun==='Todos' || v.mun===s.mun) && (!s.modelos.length || s.modelos.includes(v.modelo)) && (!s.tipos.length || s.tipos.includes(v.tipo)) && (!s.pcd || v.pcd)).sort((x,y) => s.ord==='recent' ? (x.iso < y.iso ? 1 : -1) : (x.iso > y.iso ? 1 : -1));
+    const opts = (key, list) => list.map(l => ({ label:l, on:s[key].includes(l), pick:tog(key, l) }));
+    const nav = [
+      { label:'Início', href:'Main.dc.html', sub:[] },
+      { label:'Institucional', href:'Institucional.dc.html', sub:[{label:'Sobre o CPAT',href:'Institucional.dc.html'},{label:'Espaço CPAT',href:'#'},{label:'Unidades',href:'Institucional.dc.html'}] },
+      { label:'Serviços', href:'Servicos.dc.html', sub:[] },
+      { label:'Vagas de Emprego', href:'Vagas.dc.html', sub:[] },
+      { label:'Contato', href:'Atendimento.dc.html', sub:[{label:'FAQ',href:'Main.dc.html#faq'},{label:'SAC',href:'Atendimento.dc.html'},{label:'Ouvidoria',href:'Atendimento.dc.html'},{label:'Fale conosco',href:'Atendimento.dc.html'}] }
+    ].map((n,i) => ({ ...n, hasSub: n.sub.length > 0, pop: n.sub.length > 0 ? 'true' : 'false', cur: i===3 ? 'page' : 'false', bar: i===3 ? '#FFCD07' : 'transparent' }));
+    return {
+      vars: Object.keys(th).map(k => k + ':' + th[k]).join(';'), fs: 16 + s.fsStep * 2,
+      noop: e => { if (e && e.preventDefault) e.preventDefault(); },
+      fsUp: () => self.setState({ fsStep: Math.min(4, s.fsStep + 1) }), fsDown: () => self.setState({ fsStep: Math.max(-2, s.fsStep - 1) }), fsReset: () => self.setState({ fsStep: 0 }),
+      toggleDark: () => self.setState({ dark: !s.dark }), darkPressed: s.dark ? 'true' : 'false', darkLabel: s.dark ? 'Modo claro' : 'Modo escuro',
+      q: s.q, esc: s.esc, mun: s.mun, ord: s.ord, setOrd: e => self.setState({ ord: e.target.value }),
+      modelos: opts('modelos', ['Presencial','Híbrido','Remoto']),
+      tipos: opts('tipos', ['Aprendiz','Estágio','Trainee','Temporário','Efetivo','Pessoa jurídica','Terceiro','Intermitente','Freelancer']),
+      pcd: s.pcd ? 'true' : 'false', togglePcd: () => self.setState({ pcd: !s.pcd }), pcdBg: s.pcd ? 'var(--pb)' : 'transparent', pcdKnob: s.pcd ? '#fff' : 'var(--pb)', pcdLeft: s.pcd ? 24 : 2,
+      clear: () => self.setState({ q:'', esc:'Todas', mun:'Todos', ord:'recent', modelos:[], tipos:[], pcd:false }),
+      setQ: e => self.setState({ q: e.target.value }), setEsc: e => self.setState({ esc: e.target.value }), setMun: e => self.setState({ mun: e.target.value }),
+      favOn: s.favs.includes(s.sel) ? 'true' : 'false', favLabel: s.favs.includes(s.sel) ? 'Desfavoritar' : 'Favoritar', favFill: s.favs.includes(s.sel) ? 'currentColor' : 'none', favBg: s.favs.includes(s.sel) ? 'var(--pb)' : 'transparent', favFg: s.favs.includes(s.sel) ? '#fff' : 'var(--pt)',
+      toggleFav: () => self.setState({ favs: s.favs.includes(s.sel) ? s.favs.filter(x => x !== s.sel) : s.favs.concat([s.sel]) }),
+      shareMsg: s.copied === s.sel && s.sel ? 'Link copiado' : '',
+      share: () => { const url = 'https://cpat.campinas.sp.gov.br/vagas/' + s.sel; try { if (navigator.clipboard) navigator.clipboard.writeText(url); } catch (e) {} self.setState({ copied: s.sel }); setTimeout(() => self.setState({ copied: '' }), 2500); },
+      m, modalOpen: !!s.sel, closeModal: () => self.setState({ sel: null }), stop: e => { if (e && e.stopPropagation) e.stopPropagation(); }, onKey: e => { if (e && e.key === 'Escape') self.setState({ sel: null }); },
+      vl: s.vl ? 'true' : 'false', toggleVl: () => self.setState({ vl: !s.vl }),
+      nav, rows, empty: rows.length === 0, count: rows.length + (rows.length === 1 ? ' vaga encontrada' : ' vagas encontradas')
+    };
+  }
+}
+</script>
+</body>
+</html>

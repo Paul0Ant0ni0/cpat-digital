@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>CPAT — Design System</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&display=swap">
+<style>
+body{margin:0}
+h1,h2,h3,p{margin:0}
+.lbl{font-size:12px;font-weight:800;letter-spacing:.08em;color:#555}
+.b{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 24px;border-radius:100px;font:inherit;font-weight:700;font-size:16px;box-sizing:border-box;border:2px solid transparent;cursor:pointer}
+</style>
+</helmet>
+<div style="width:1280px; box-sizing:border-box; background:#F8F8F8; color:#333; font-family:'Raleway','Rawline',system-ui,sans-serif; font-size:16px; line-height:1.5">
+
+<!-- Capa -->
+<header style="background:linear-gradient(135deg,#1351B4,#071D41); color:#fff; padding:56px 64px">
+<div style="font-size:13px; font-weight:800; letter-spacing:.1em; color:#FFCD07">DESIGN SYSTEM · V1</div>
+<h1 style="font-size:48px; font-weight:800; line-height:1.1; margin-top:12px">CPAT Campinas — Style Guide</h1>
+<p style="font-size:20px; max-width:760px; margin-top:16px">Tokens, princípios, grid e componentes organizados em Design Atômico, baseados no Gov.br Design System, com temas claro e escuro.</p>
+<div style="display:flex; gap:12px; margin-top:28px; flex-wrap:wrap">
+<span style="border:1px solid #fff; border-radius:100px; padding:6px 16px; font-weight:700">1 Princípios</span><span style="border:1px solid #fff; border-radius:100px; padding:6px 16px; font-weight:700">2 Fundamentos</span><span style="border:1px solid #fff; border-radius:100px; padding:6px 16px; font-weight:700">3 Design atômico</span><span style="border:1px solid #fff; border-radius:100px; padding:6px 16px; font-weight:700">4 Componentes (claro/escuro)</span><span style="border:1px solid #fff; border-radius:100px; padding:6px 16px; font-weight:700">5 Acessibilidade</span>
+</div>
+</header>
+
+<div style="padding:64px; display:flex; flex-direction:column; gap:72px">
+
+<!-- 1 Princípios -->
+<section>
+<div class="lbl">1 · PRINCÍPIOS</div>
+<h2 style="font-size:32px; font-weight:800; color:#1351B4; margin:4px 0 8px">7 princípios do design aplicados</h2>
+<p style="max-width:760px; color:#555; margin-bottom:28px">Cada decisão visual do site responde a pelo menos um destes princípios.</p>
+<div style="display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px">
+<sc-for list="{{principios}}" as="p" hint-placeholder-count="7">
+<div style="background:#fff; border:1px solid #CCC; border-top:4px solid #1351B4; border-radius:8px; padding:20px; display:flex; flex-direction:column; gap:8px">
+<div style="font-size:13px; font-weight:800; color:#1351B4">{{p.n}}</div>
+<h3 style="font-size:20px; font-weight:800">{{p.t}}</h3>
+<p style="font-size:15px; color:#555">{{p.d}}</p>
+</div>
+</sc-for>
+<div style="background:#071D41; color:#fff; border-radius:8px; padding:20px; display:flex; align-items:center"><p style="font-size:15px">Princípio extra: <strong>acessibilidade em primeiro lugar</strong>. Contraste, foco visível, alvos de 44 px e texto ajustável.</p></div>
+</div>
+</section>
+
+<!-- 2 Fundamentos -->
+<section style="display:flex; flex-direction:column; gap:48px">
+<div><div class="lbl">2 · FUNDAMENTOS</div>
+<h2 style="font-size:32px; font-weight:800; color:#1351B4; margin-top:4px">Cores, tipografia, grid e espaço</h2></div>
+
+<div>
+<h3 style="font-size:22px; font-weight:800; margin-bottom:4px">Cores — tokens por tema</h3>
+<p style="color:#555; margin-bottom:16px; font-size:15px">Os componentes usam sempre o token, nunca o hex. Contrastes calculados pela fórmula WCAG (aproximados).</p>
+<div style="background:#fff; border:1px solid #CCC; border-radius:8px; overflow:hidden">
+<div style="display:grid; grid-template-columns:200px 1.6fr 140px 140px 120px 120px; gap:0; background:#EDF5FF; font-weight:800; font-size:13px; padding:12px 20px"><span>Token</span><span>Uso</span><span>Claro</span><span>Escuro</span><span>Contraste claro</span><span>Contraste escuro</span></div>
+<sc-for list="{{cores}}" as="c" hint-placeholder-count="12">
+<div style="display:grid; grid-template-columns:200px 1.6fr 140px 140px 120px 120px; align-items:center; padding:10px 20px; border-top:1px solid #E3E3E3; font-size:14px">
+<code style="font-weight:700">{{c.k}}</code><span style="color:#555">{{c.u}}</span>
+<span style="display:flex; align-items:center; gap:8px"><i style="display:block; width:28px; height:28px; border-radius:6px; border:1px solid #888; background:{{c.l}}"></i>{{c.l}}</span>
+<span style="display:flex; align-items:center; gap:8px"><i style="display:block; width:28px; height:28px; border-radius:6px; border:1px solid #888; background:{{c.d}}"></i>{{c.d}}</span>
+<span>{{c.cl}}</span><span>{{c.cd}}</span>
+</div>
+</sc-for>
+</div>
+</div>
+
+<div style="display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr); gap:32px">
+<div>
+<h3 style="font-size:22px; font-weight:800; margin-bottom:4px">Tipografia e hierarquia visual</h3>
+<p style="color:#555; margin-bottom:16px; font-size:15px">Raleway (substituta da Rawline do Gov.br). Tamanhos em <code>em</code> para o botão A− / A+ funcionar em todo o site.</p>
+<div style="background:#fff; border:1px solid #CCC; border-radius:8px; padding:24px; display:flex; flex-direction:column; gap:16px">
+<sc-for list="{{tipos}}" as="t" hint-placeholder-count="7">
+<div style="display:flex; align-items:baseline; justify-content:space-between; gap:16px; border-bottom:1px dashed #DDD; padding-bottom:12px"><span style="font-size:{{t.px}}px; font-weight:{{t.w}}; line-height:1.15; color:#1351B4">{{t.s}}</span><span style="font-size:12px; color:#555; text-align:right; flex:none">{{t.n}}<br>{{t.m}}</span></div>
+</sc-for>
+</div>
+</div>
+<div>
+<h3 style="font-size:22px; font-weight:800; margin-bottom:4px">Alinhamento e grid</h3>
+<p style="color:#555; margin-bottom:16px; font-size:15px">12 colunas, contêiner de 1200 px, calha de 24 px.</p>
+<div style="background:#fff; border:1px solid #CCC; border-radius:8px; padding:20px">
+<div style="display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:6px; height:96px"><sc-for list="{{cols}}" as="c" hint-placeholder-count="12"><div style="background:rgba(19,81,180,.18); border:1px solid #1351B4; border-radius:2px; font-size:11px; font-weight:700; color:#1351B4; text-align:center; padding-top:4px">{{c}}</div></sc-for></div>
+<div style="display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:6px; margin-top:12px; font-size:12px; font-weight:700; color:#fff"><div style="grid-column:span 8; background:#1351B4; padding:8px; border-radius:4px">Conteúdo · 8</div><div style="grid-column:span 4; background:#071D41; padding:8px; border-radius:4px">Lateral · 4</div></div>
+<table style="width:100%; margin-top:16px; border-collapse:collapse; font-size:13px"><tr style="background:#EDF5FF; text-align:left"><th style="padding:6px 8px">Breakpoint</th><th>Colunas</th><th>Margem</th></tr><tr><td style="padding:6px 8px">Mobile &lt; 640</td><td>4</td><td>16</td></tr><tr style="background:#F4F4F4"><td style="padding:6px 8px">Tablet 640–1024</td><td>8</td><td>24</td></tr><tr><td style="padding:6px 8px">Desktop &gt; 1024</td><td>12</td><td>24</td></tr></table>
+</div>
+</div>
+</div>
+
+<div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:32px">
+<div style="grid-column:span 2">
+<h3 style="font-size:22px; font-weight:800; margin-bottom:4px">Espaço em branco e espaçamento</h3>
+<p style="color:#555; margin-bottom:16px; font-size:15px">Escala de 4/8 px. Respiro generoso entre seções agrupa conteúdo por proximidade.</p>
+<div style="background:#fff; border:1px solid #CCC; border-radius:8px; padding:24px; display:flex; flex-direction:column; gap:10px">
+<sc-for list="{{espacos}}" as="e" hint-placeholder-count="9"><div style="display:flex; align-items:center; gap:16px; font-size:13px"><code style="width:72px; font-weight:700">{{e.k}}</code><i style="display:block; height:16px; width:{{e.v}}px; background:#1351B4; border-radius:2px"></i><span style="color:#555">{{e.v}} px · {{e.u}}</span></div></sc-for>
+</div>
+</div>
+<div>
+<h3 style="font-size:22px; font-weight:800; margin-bottom:4px">Raios e elevação</h3>
+<p style="color:#555; margin-bottom:16px; font-size:15px">Consistência: mesmo raio para o mesmo papel.</p>
+<div style="background:#fff; border:1px solid #CCC; border-radius:8px; padding:24px; display:flex; flex-direction:column; gap:14px; font-size:13px">
+<div style="display:flex; align-items:center; gap:12px"><i style="width:44px; height:28px; border:2px solid #1351B4; border-radius:4px"></i>4 · campos</div>
+<div style="display:flex; align-items:center; gap:12px"><i style="width:44px; height:28px; border:2px solid #1351B4; border-radius:8px"></i>8 · cards</div>
+<div style="display:flex; align-items:center; gap:12px"><i style="width:44px; height:28px; border:2px solid #1351B4; border-radius:16px"></i>16 · hero, chat</div>
+<div style="display:flex; align-items:center; gap:12px"><i style="width:44px; height:28px; border:2px solid #1351B4; border-radius:100px"></i>pílula · botões</div>
+<div style="display:flex; align-items:center; gap:12px"><i style="width:44px; height:28px; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,.2); border-radius:4px"></i>elevação ao passar o mouse</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 3 Design atômico -->
+<section>
+<div class="lbl">3 · DESIGN ATÔMICO</div>
+<h2 style="font-size:32px; font-weight:800; color:#1351B4; margin:4px 0 8px">Do átomo à página</h2>
+<p style="max-width:760px; color:#555; margin-bottom:28px">Cada nível reutiliza o anterior. Mudou um token ou um átomo, todo o site muda junto.</p>
+<div style="display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:16px">
+<sc-for list="{{atomico}}" as="a" hint-placeholder-count="5">
+<div style="background:#fff; border:1px solid #CCC; border-radius:8px; overflow:hidden; display:flex; flex-direction:column">
+<div style="background:{{a.bg}}; color:#fff; padding:14px 16px"><div style="font-size:12px; font-weight:800; letter-spacing:.08em">{{a.n}}</div><div style="font-size:20px; font-weight:800">{{a.t}}</div></div>
+<ul style="margin:0; padding:16px 16px 16px 32px; font-size:14px; color:#333; display:flex; flex-direction:column; gap:4px">
+<sc-for list="{{a.items}}" as="i" hint-placeholder-count="5"><li>{{i}}</li></sc-for>
+</ul>
+</div>
+</sc-for>
+</div>
+</section>
+
+<!-- 4 Componentes -->
+<section>
+<div class="lbl">4 · COMPONENTES</div>
+<h2 style="font-size:32px; font-weight:800; color:#1351B4; margin:4px 0 8px">Átomos, moléculas e organismos — claro e escuro</h2>
+<p style="max-width:760px; color:#555; margin-bottom:28px">Mesmos componentes, renderizados com os tokens de cada tema, com variações de estado.</p>
+<div style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; align-items:start">
+<sc-for list="{{themes}}" as="t" hint-placeholder-count="2">
+<div style="{{t.vars}}; background:var(--bg); color:var(--fg); border:1px solid #888; border-radius:12px; padding:28px; display:flex; flex-direction:column; gap:32px">
+<div style="display:flex; justify-content:space-between; align-items:center"><strong style="font-size:22px; color:var(--pt)">{{t.name}}</strong><span style="font-size:12px; color:var(--mu)">tokens: {{t.k}}</span></div>
+
+<!-- Átomos -->
+<div style="display:flex; flex-direction:column; gap:16px">
+<div style="font-size:12px; font-weight:800; letter-spacing:.08em; color:var(--mu)">ÁTOMOS · BOTÕES</div>
+<div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center">
+<span class="b" style="background:var(--pb); color:#fff">Primário</span>
+<span class="b" style="background:transparent; color:var(--pt); border-color:var(--pt)">Secundário</span>
+<span class="b" style="background:transparent; color:var(--pt); text-decoration:underline">Terciário</span>
+<span class="b" style="background:var(--bd); color:var(--mu); cursor:not-allowed">Desabilitado</span>
+<span class="b" style="background:var(--pb); color:#fff; outline:3px solid #FFCD07; outline-offset:2px">Foco</span>
+<span class="b" style="background:var(--pb); color:#fff; min-height:36px; padding:0 16px; font-size:14px">Pequeno</span>
+<span class="b" style="background:#E97F02; color:#000">Chat</span>
+</div>
+<div style="font-size:12px; font-weight:800; letter-spacing:.08em; color:var(--mu)">ÁTOMOS · CAMPOS, SELEÇÃO E SELOS</div>
+<div style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px">
+<div style="min-height:44px; box-sizing:border-box; padding:10px 14px; border:1px solid var(--bi); border-radius:4px; background:var(--sf); color:var(--mu)">Padrão</div>
+<div style="min-height:44px; box-sizing:border-box; padding:10px 14px; border:2px solid var(--pt); border-radius:4px; background:var(--sf); color:var(--fg)">Em foco</div>
+<div style="min-height:44px; box-sizing:border-box; padding:10px 14px; border:2px solid var(--er); border-radius:4px; background:var(--sf); color:var(--fg)">Com erro</div>
+<div style="min-height:44px; box-sizing:border-box; padding:10px 14px; border:1px solid var(--bd); border-radius:4px; background:var(--bd); color:var(--mu)">Desabilitado</div>
+</div>
+<div style="display:flex; flex-wrap:wrap; gap:16px; align-items:center">
+<label style="display:flex; align-items:center; gap:8px"><input type="checkbox" checked style="width:20px; height:20px; accent-color:#2D6BD1">Checkbox</label>
+<label style="display:flex; align-items:center; gap:8px"><input type="radio" checked style="width:20px; height:20px; accent-color:#2D6BD1">Radio</label>
+<span style="background:var(--tint); color:var(--pt); font-weight:700; font-size:12px; padding:2px 10px; border-radius:100px">25 vagas</span>
+<span style="background:var(--ok); color:var(--okt); font-weight:700; font-size:12px; padding:2px 10px; border-radius:100px">Aberta</span>
+<span style="background:var(--er-bg); color:var(--er-t); font-weight:700; font-size:12px; padding:2px 10px; border-radius:100px">Encerrada</span>
+<span style="width:40px; height:40px; border-radius:100px; background:var(--pb); color:#fff; display:inline-flex; align-items:center; justify-content:center; font-weight:800">M</span>
+</div>
+</div>
+
+<!-- Moléculas -->
+<div style="display:flex; flex-direction:column; gap:16px">
+<div style="font-size:12px; font-weight:800; letter-spacing:.08em; color:var(--mu)">MOLÉCULAS</div>
+<div style="font-size:13px; color:var(--mu)">Início › <strong style="color:var(--fg)">Vagas de emprego</strong> (breadcrumb)</div>
+<div style="display:flex; flex-direction:column; gap:6px"><span style="font-weight:700; font-size:14px">E-mail <span style="color:var(--er-t)">*</span></span><div style="min-height:44px; box-sizing:border-box; padding:10px 14px; border:2px solid var(--er); border-radius:4px; background:var(--sf)">nome@</div><span style="font-size:13px; color:var(--er-t)">Informe um e-mail válido, por exemplo nome@email.com.</span></div>
+<div style="display:flex"><div style="flex:1; min-height:44px; box-sizing:border-box; padding:10px 18px; border:1px solid var(--bi); border-right:0; border-radius:100px 0 0 100px; background:var(--sf); color:var(--mu)">Pesquisar vagas e serviços</div><span class="b" style="border-radius:0 100px 100px 0; background:var(--pb); color:#fff; padding:0 18px">Buscar</span></div>
+<div style="display:flex; gap:8px; flex-wrap:wrap"><span class="b" style="min-height:36px; padding:0 16px; font-size:14px; background:var(--pb); color:#fff; border-color:var(--pb)">Todas</span><span class="b" style="min-height:36px; padding:0 16px; font-size:14px; color:var(--pt); border-color:var(--pb)">Feirão</span><span class="b" style="min-height:36px; padding:0 16px; font-size:14px; color:var(--pt); border-color:var(--pb)">Economia</span></div>
+<div style="background:var(--ib); color:var(--ibt); border-left:6px solid #155BCB; border-radius:4px; padding:12px 16px; font-size:14px"><strong>Informação.</strong> Atendimento mediante agendamento.</div>
+<div style="background:var(--ok); color:var(--okt); border-left:6px solid #168821; border-radius:4px; padding:12px 16px; font-size:14px"><strong>Sucesso.</strong> Mensagem enviada. Protocolo gerado.</div>
+<div style="background:var(--wn); color:var(--wnt); border-left:6px solid #FFCD07; border-radius:4px; padding:12px 16px; font-size:14px"><strong>Atenção.</strong> A vaga pode ser encerrada a qualquer momento.</div>
+<div style="background:var(--er-bg); color:var(--er-t); border-left:6px solid #E52207; border-radius:4px; padding:12px 16px; font-size:14px"><strong>Erro.</strong> Não foi possível enviar. Tente novamente.</div>
+<div style="background:var(--sf); border:1px solid var(--bd); border-radius:8px; padding:16px; display:flex; flex-direction:column; gap:8px"><span style="width:40px; height:40px; border-radius:100px; background:var(--tint); color:var(--pt); display:inline-flex; align-items:center; justify-content:center; font-weight:800">S</span><strong style="color:var(--pt)">Seguro-Desemprego</strong><span style="font-size:14px; color:var(--mu)">Card de serviço: ícone, título e resumo.</span></div>
+<div style="border-top:1px solid var(--bd); border-bottom:1px solid var(--bd); padding:12px 0"><div style="display:flex; justify-content:space-between; font-weight:700">Como me candidato a uma vaga?<span style="color:var(--pt)">⌃</span></div><p style="font-size:14px; color:var(--mu); margin-top:6px">Item de FAQ aberto: resposta curta e direta.</p></div>
+</div>
+
+<!-- Organismos -->
+<div style="display:flex; flex-direction:column; gap:16px">
+<div style="font-size:12px; font-weight:800; letter-spacing:.08em; color:var(--mu)">ORGANISMOS</div>
+<div style="border:1px solid var(--bd); border-radius:8px; overflow:hidden; background:var(--sf)">
+<div style="background:var(--ft); color:#fff; font-size:11px; padding:6px 14px; display:flex; justify-content:space-between">Prefeitura Municipal de Campinas<span>A− A A+ · Modo escuro</span></div>
+<div style="padding:12px 14px; display:flex; justify-content:space-between; align-items:center"><strong style="font-size:20px; color:var(--pt)">CPAT SINE</strong><span style="font-size:12px; color:var(--mu)">Pesquisar · redes</span></div>
+<div style="background:var(--nv); color:#fff; font-size:12px; font-weight:700; padding:12px 14px">INÍCIO · INSTITUCIONAL · SERVIÇOS · VAGAS · FAQ · SAC</div>
+</div>
+<div style="background:var(--hero); color:#fff; border-radius:16px; padding:20px"><span style="background:#FFCD07; color:#071D41; font-size:11px; font-weight:800; padding:2px 10px; border-radius:100px">VAGAS</span><div style="font-size:24px; font-weight:800; margin:8px 0">Vagas abertas para você</div><div style="display:flex; gap:6px; align-items:center"><i style="width:24px; height:8px; border-radius:8px; background:#FFCD07"></i><i style="width:8px; height:8px; border-radius:8px; background:rgba(255,255,255,.6)"></i><i style="width:8px; height:8px; border-radius:8px; background:rgba(255,255,255,.6)"></i><span style="margin-left:auto; font-size:12px">Carrossel · pausa · setas · pontos</span></div></div>
+<div style="background:var(--sf); border:1px solid var(--bd); border-left:5px solid var(--pb); border-radius:8px; padding:14px 16px"><strong style="color:var(--pt)">Açougueiro</strong><div style="font-weight:800; font-size:18px">R$ 3.186,35</div><div style="font-size:13px; color:var(--mu)">Campinas · Médio completo · 2 vagas</div></div>
+<div style="background:var(--ft); color:#fff; border-radius:8px; padding:16px; font-size:13px"><strong>Rodapé</strong> · unidades, horários, redes, LGPD</div>
+</div>
+
+</div>
+</sc-for>
+</div>
+</section>
+
+<!-- 5 Acessibilidade -->
+<section>
+<div class="lbl">5 · ACESSIBILIDADE E CONSISTÊNCIA</div>
+<h2 style="font-size:32px; font-weight:800; color:#1351B4; margin:4px 0 24px">Regras que valem para todos os componentes</h2>
+<div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px">
+<sc-for list="{{regras}}" as="r" hint-placeholder-count="6"><div style="background:#fff; border:1px solid #CCC; border-radius:8px; padding:20px"><h3 style="font-size:18px; font-weight:800; color:#1351B4; margin-bottom:6px">{{r.t}}</h3><p style="font-size:15px; color:#555">{{r.d}}</p></div></sc-for>
+</div>
+</section>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":5400}}'>
+class Component extends DCLogic {
+  renderVals(){
+    const base = k => ({ '--er':'#E52207' });
+    const L = { '--bg':'#F8F8F8','--sf':'#FFFFFF','--fg':'#333333','--mu':'#555555','--pt':'#1351B4','--pb':'#1351B4','--bd':'#CCCCCC','--bi':'#767676','--tint':'#EDF5FF','--nv':'#1351B4','--ft':'#071D41','--hero':'linear-gradient(135deg,#1351B4,#071D41)','--wn':'#FFF5D6','--wnt':'#333333','--ok':'#E3F5E1','--okt':'#1B4D1F','--ib':'#E6F0FF','--ibt':'#0B2A63','--er':'#E52207','--er-bg':'#FDE8E6','--er-t':'#9A1405' };
+    const D = { '--bg':'#0B1424','--sf':'#14223A','--fg':'#E9EEF6','--mu':'#B3BFD1','--pt':'#9DBFF7','--pb':'#2D6BD1','--bd':'#2F4468','--bi':'#8397B8','--tint':'#1B2D4B','--nv':'#14223A','--ft':'#060C18','--hero':'linear-gradient(135deg,#1C3F7A,#0A1428)','--wn':'#3A3010','--wnt':'#FFE9A0','--ok':'#12301A','--okt':'#BDEFC4','--ib':'#10264A','--ibt':'#CFE0FF','--er':'#FF6B57','--er-bg':'#3A1410','--er-t':'#FFC9C1' };
+    const v = o => Object.keys(o).map(k => k + ':' + o[k]).join(';');
+    return {
+      themes: [{ name:'Modo claro', vars:v(L), k:'--pt #1351B4' },{ name:'Modo escuro', vars:v(D), k:'--pt #9DBFF7' }],
+      principios: [
+        { n:'01', t:'Equilíbrio', d:'Blocos distribuídos de forma simétrica: conteúdo principal à esquerda, apoio à direita.' },
+        { n:'02', t:'Contraste', d:'Azul institucional sobre branco; amarelo só para destaque e foco.' },
+        { n:'03', t:'Hierarquia', d:'Tamanho e peso guiam o olhar: título, subtítulo, texto, apoio.' },
+        { n:'04', t:'Alinhamento', d:'Tudo preso ao grid de 12 colunas e a uma margem comum.' },
+        { n:'05', t:'Proximidade', d:'Itens relacionados ficam juntos; seções se separam por espaço.' },
+        { n:'06', t:'Repetição', d:'Mesmos botões, cards e alertas em todas as telas: o usuário aprende uma vez.' },
+        { n:'07', t:'Espaço em branco', d:'Respiro entre blocos reduz ruído e melhora a leitura.' }
+      ],
+      cores: [
+        { k:'--bg', u:'Fundo da página', l:'#F8F8F8', d:'#0B1424', cl:'—', cd:'—' },
+        { k:'--sf', u:'Cards, cabeçalho, campos', l:'#FFFFFF', d:'#14223A', cl:'—', cd:'—' },
+        { k:'--fg', u:'Texto principal', l:'#333333', d:'#E9EEF6', cl:'12,6:1', cd:'≈15:1' },
+        { k:'--mu', u:'Texto secundário', l:'#555555', d:'#B3BFD1', cl:'7,5:1', cd:'≈8,6:1' },
+        { k:'--pt', u:'Links e títulos em azul', l:'#1351B4', d:'#9DBFF7', cl:'7,3:1', cd:'≈8,5:1' },
+        { k:'--pb', u:'Fundo de botão (texto branco)', l:'#1351B4', d:'#2D6BD1', cl:'7,3:1', cd:'≈5,1:1' },
+        { k:'--bd', u:'Divisórias e bordas de card', l:'#CCCCCC', d:'#2F4468', cl:'decorativa', cd:'decorativa' },
+        { k:'--bi', u:'Borda de campo de formulário', l:'#767676', d:'#8397B8', cl:'4,5:1', cd:'≈5:1' },
+        { k:'--tint', u:'Realce suave (ícones, selos)', l:'#EDF5FF', d:'#1B2D4B', cl:'—', cd:'—' },
+        { k:'--ft', u:'Barra superior e rodapé', l:'#071D41', d:'#060C18', cl:'≈16:1', cd:'≈18:1' },
+        { k:'foco', u:'Anel de foco (ambos os temas)', l:'#FFCD07', d:'#FFCD07', cl:'sobre azul', cd:'sobre azul' },
+        { k:'--er', u:'Erro (borda e ícone)', l:'#E52207', d:'#FF6B57', cl:'4,6:1', cd:'≈6:1' }
+      ],
+      tipos: [
+        { px:40, w:800, s:'Display', n:'Display', m:'2,5em · 800' },
+        { px:32, w:800, s:'Título 1', n:'H1', m:'2,25em · 800' },
+        { px:26, w:800, s:'Título 2', n:'H2', m:'1,75em · 800' },
+        { px:20, w:800, s:'Título 3', n:'H3', m:'1,25em · 800' },
+        { px:18, w:400, s:'Texto de destaque', n:'Corpo L', m:'1,125em · 400' },
+        { px:16, w:400, s:'Texto de leitura padrão', n:'Corpo', m:'1em · 400 · linha 1,55' },
+        { px:13, w:600, s:'Apoio e legendas', n:'Pequeno', m:'0,8125em · 600' }
+      ],
+      cols: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+      espacos: [
+        { k:'space-1', v:4, u:'ajuste fino' },{ k:'space-2', v:8, u:'ícone + texto' },{ k:'space-3', v:12, u:'itens de lista' },{ k:'space-4', v:16, u:'campos, calha mobile' },{ k:'space-5', v:20, u:'gap entre cards' },{ k:'space-6', v:24, u:'padding de card, calha' },{ k:'space-8', v:32, u:'grupos' },{ k:'space-10', v:40, u:'blocos' },{ k:'space-14', v:56, u:'entre seções' }
+      ],
+      atomico: [
+        { n:'NÍVEL 1', t:'Átomos', bg:'#1351B4', items:['Botão (3 variantes)','Link','Campo de texto','Rótulo','Checkbox / radio','Selo (badge)','Ícone','Avatar'] },
+        { n:'NÍVEL 2', t:'Moléculas', bg:'#155BCB', items:['Campo + rótulo + ajuda','Busca','Chips de filtro','Alerta (4 tipos)','Breadcrumb','Card de serviço','Item de FAQ','Card de vaga'] },
+        { n:'NÍVEL 3', t:'Organismos', bg:'#0C3F8A', items:['Cabeçalho + menu','Carrossel de destaques','Grade de serviços','Lista de vagas','Depoimentos','Formulário SAC','Rodapé','Chat flutuante'] },
+        { n:'NÍVEL 4', t:'Templates', bg:'#0A2F6B', items:['Home (hero + seções)','Lista com filtros','Conteúdo + índice','Mestre-detalhe','Formulário em abas'] },
+        { n:'NÍVEL 5', t:'Páginas', bg:'#071D41', items:['Home','Institucional','Serviços','Vagas','Atendimento','Versões mobile','Claro e escuro'] }
+      ],
+      regras: [
+        { t:'Contraste', d:'Texto com no mínimo 4,5:1 (3:1 acima de 24 px). Os dois temas seguem a tabela de cores.' },
+        { t:'Foco visível', d:'Anel amarelo de 3 px em links, botões e campos. Navegação completa por teclado.' },
+        { t:'Alvos de toque', d:'Mínimo de 44 × 44 px em botões e controles, inclusive no mobile.' },
+        { t:'Texto ajustável', d:'Botões A−, A e A+ escalam todo o texto de −2 a +4 passos sem quebrar o layout.' },
+        { t:'Semântica', d:'Landmarks (header, nav, main, footer), um h1 por página, rótulos em todos os campos e link para pular ao conteúdo.' },
+        { t:'Movimento', d:'O carrossel tem botão de pausa e não anuncia mudanças automáticas a leitores de tela.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

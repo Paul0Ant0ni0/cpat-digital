@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>CPAT Campinas — Serviços</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&display=swap">
+<style>
+body{margin:0}
+.ct{max-width:1120px;margin:0 auto;padding:0 32px;box-sizing:border-box}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 24px;border-radius:100px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none;box-sizing:border-box;border:2px solid transparent}
+.ib{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;border-radius:100px;border:0;background:transparent;color:inherit;font:inherit;font-weight:700;cursor:pointer}
+.ib:hover{background:rgba(127,127,127,.25)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #FFCD07;outline-offset:2px}
+.nv{position:relative;list-style:none}
+.nv-sub{display:none;position:absolute;left:0;top:100%;min-width:230px;margin:0;padding:8px;list-style:none;background:var(--sf);border:1px solid var(--bd);border-top:0;border-radius:0 0 12px 12px;box-shadow:0 10px 24px rgba(0,0,0,.25);z-index:40}
+.nv:hover>.nv-sub,.nv:focus-within>.nv-sub{display:block}
+.nv-sub a{display:flex;align-items:center;min-height:44px;padding:0 14px;color:var(--fg);text-decoration:none;font-weight:600;font-size:0.875rem;border-radius:8px}
+.nv-sub a:hover{background:var(--tint);color:var(--pt)}
+.skip{position:absolute;left:-999px;top:8px;background:#FFCD07;color:#000;padding:8px 16px;z-index:10;font-weight:700}.skip:focus{left:8px}
+</style>
+</helmet>
+<div style="{{vars}}; font-family:'Raleway','Rawline',system-ui,sans-serif; font-size:{{fs}}px; line-height:1.55; background:var(--bg); color:var(--fg)">
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+<div style="background:var(--ft); color:#fff">
+<div class="ct" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px; min-height:48px">
+<span style="font-size:0.8125em; font-weight:600">Prefeitura Municipal de Campinas · Secretaria de Trabalho e Renda</span>
+<div style="display:flex; flex-wrap:wrap; align-items:center; gap:4px">
+<span style="font-size:0.8125em; margin-right:4px">Texto</span>
+<button class="ib" onClick="{{fsDown}}" aria-label="Diminuir tamanho da fonte">A−</button>
+<button class="ib" onClick="{{fsReset}}" aria-label="Tamanho padrão da fonte">A</button>
+<button class="ib" onClick="{{fsUp}}" aria-label="Aumentar tamanho da fonte">A+</button>
+<button class="btn" onClick="{{toggleDark}}" aria-pressed="{{darkPressed}}" style="min-height:36px; padding:0 16px; margin-left:8px; background:transparent; color:#fff; border-color:#fff; font-size:0.8125em">{{darkLabel}}</button>
+</div>
+</div>
+</div>
+<header style="background:var(--sf); border-bottom:1px solid var(--bd)">
+<div class="ct" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:20px; padding-top:16px; padding-bottom:16px">
+<a href="Main.dc.html" style="display:flex; align-items:center; gap:14px; text-decoration:none; color:var(--pt)" aria-label="CPAT SINE — página inicial">
+<svg width="52" height="52" viewBox="0 0 52 52" fill="none" aria-hidden="true"><path d="M10 24a16 16 0 0 1 32 0z" fill="currentColor"/><rect x="6" y="24" width="40" height="5" rx="2.5" fill="currentColor"/><path d="M14 34h24l-3 16H17z" fill="currentColor"/><path d="M26 34l-4 6 4 10 4-10z" fill="var(--sf)"/></svg>
+<div><div style="font-size:1.75em; font-weight:800; line-height:1">CPAT <span style="color:var(--fg)">SINE</span></div><div style="font-size:0.75em; font-weight:600; color:var(--mu); margin-top:4px">Centro Público de Apoio ao Trabalhador</div></div>
+</a>
+<form role="search" onSubmit="{{noop}}" style="display:flex; flex:1 1 280px; max-width:460px">
+<input type="search" aria-label="Pesquisar no site" placeholder="Pesquisar vagas, serviços e notícias" style="flex:1; min-width:0; min-height:44px; padding:0 18px; font:inherit; font-size:0.9375em; border:1px solid var(--bd); border-right:0; border-radius:100px 0 0 100px; background:var(--bg); color:var(--fg)">
+<button type="submit" class="btn" aria-label="Pesquisar" style="border-radius:0 100px 100px 0; padding:0 18px; background:var(--pb); color:#fff"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3"/></svg></button>
+</form>
+</div>
+</header>
+<nav aria-label="Menu principal" style="background:var(--nv)">
+<ul class="ct" style="display:flex; flex-wrap:wrap; list-style:none; margin:0 auto; padding-top:0; padding-bottom:0">
+<sc-for list="{{nav}}" as="n" hint-placeholder-count="9">
+<li class="nv"><a href="{{n.href}}" aria-current="{{n.cur}}" aria-haspopup="{{n.pop}}" style="display:flex; align-items:center; gap:6px; min-height:52px; padding:0 16px; color:#fff; text-decoration:none; font-weight:700; font-size:0.875em; border-bottom:4px solid {{n.bar}}">{{n.label}}<sc-if value="{{n.hasSub}}" hint-placeholder-val="{{ false }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></sc-if></a>
+<sc-if value="{{n.hasSub}}" hint-placeholder-val="{{ false }}"><ul class="nv-sub" aria-label="Submenu de {{n.label}}"><sc-for list="{{n.sub}}" as="c" hint-placeholder-count="4"><li><a href="{{c.href}}">{{c.label}}</a></li></sc-for></ul></sc-if></li>
+</sc-for>
+</ul>
+</nav>
+
+<section style="background:var(--hero); color:#fff; overflow:hidden">
+<div class="ct" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:40px; padding-top:48px; padding-bottom:48px">
+<div style="flex:1 1 400px; max-width:620px">
+<nav aria-label="Você está aqui" style="font-size:0.875em; margin-bottom:16px"><a href="Main.dc.html" style="color:#fff; font-weight:700">Início</a> › Serviços</nav>
+<h1 style="margin:0 0 16px; font-size:2.5em; line-height:1.15; font-weight:800">Serviços do CPAT</h1>
+<p style="margin:0; font-size:1.125em">Conheça o que o CPAT oferece. Selecione um serviço para ver os detalhes e como acessar.</p>
+</div>
+<div style="flex:1 1 300px; display:flex; justify-content:center"><svg viewBox="0 0 360 220" width="100%" style="max-width:340px; height:auto" role="img" aria-label="Ilustração de cartões com os ícones de maleta, escudo e capelo de formatura"><circle cx="190" cy="112" r="96" fill="#fff" fill-opacity=".1"/><g fill="none" stroke="#071D41" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="40" width="86" height="86" rx="20" fill="#fff" stroke="none"/><rect x="136" y="70" width="86" height="86" rx="20" fill="#FFCD07" stroke="none"/><rect x="242" y="30" width="86" height="86" rx="20" fill="#fff" stroke="none"/><g transform="translate(55 65) scale(1.5)" stroke="#1351B4"><path d="M3 7h18v13H3z M8 7V4h8v3"/></g><g transform="translate(161 95) scale(1.5)"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></g><g transform="translate(267 55) scale(1.5)" stroke="#1351B4"><path d="M2 9l10-5 10 5-10 5z M6 11v5c3 2 9 2 12 0v-5"/></g></g><rect x="60" y="176" width="240" height="8" rx="4" fill="#fff" fill-opacity=".35"/></svg></div>
+</div>
+</section>
+<main id="conteudo" class="ct" style="padding-top:56px; padding-bottom:88px">
+
+<div style="display:flex; flex-wrap:wrap; gap:16px; align-items:center; margin-bottom:24px">
+<label for="s-q" style="font-weight:700">Filtrar serviços</label>
+<input id="s-q" value="{{q}}" onInput="{{setQ}}" placeholder="Ex.: seguro, MEI, curso…" style="flex:1 1 280px; max-width:420px; min-height:44px; padding:0 16px; font:inherit; border:1px solid var(--bd); border-radius:100px; background:var(--sf); color:var(--fg)">
+<span aria-live="polite" style="color:var(--mu); font-size:0.875em">{{count}}</span>
+</div>
+
+<div style="display:flex; flex-wrap:wrap; gap:32px; align-items:flex-start">
+<ul aria-label="Lista de serviços" style="flex:1 1 340px; list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px">
+<sc-for list="{{list}}" as="s" hint-placeholder-count="9">
+<li><button onClick="{{s.pick}}" aria-pressed="{{s.on}}" style="display:flex; align-items:center; gap:16px; width:100%; min-height:72px; padding:12px 16px; text-align:left; font:inherit; background:{{s.bg}}; color:var(--fg); border:2px solid {{s.bd}}; border-radius:8px; cursor:pointer">
+<span style="flex:none; display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:100px; background:var(--tint); color:var(--pt)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{s.d}}"/></svg></span>
+<span style="flex:1; font-weight:700; color:var(--pt)">{{s.title}}</span>
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--pt)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+</button></li>
+</sc-for>
+</ul>
+
+<section aria-live="polite" aria-label="Detalhes do serviço" style="flex:1.4 1 420px; background:var(--sf); border:1px solid var(--bd); border-top:6px solid var(--pb); border-radius:8px; padding:32px; position:sticky; top:16px">
+<span style="display:inline-flex; align-items:center; justify-content:center; width:56px; height:56px; border-radius:100px; background:var(--pb); color:#fff"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{sel.d}}"/></svg></span>
+<h2 style="margin:16px 0 8px; font-size:1.75em; font-weight:800; color:var(--pt)">{{sel.title}}</h2>
+<p style="margin:0 0 24px; font-size:1.0625em">{{sel.desc}}</p>
+<h3 style="margin:0 0 8px; font-size:1em; font-weight:800">Quem pode usar</h3>
+<p style="margin:0 0 20px; color:var(--mu)">{{sel.who}}</p>
+<h3 style="margin:0 0 8px; font-size:1em; font-weight:800">Como acessar</h3>
+<ul style="margin:0 0 24px; padding-left:20px; color:var(--mu)">
+<li>Presencialmente, em uma das 3 unidades (agendamento pelo Portal do Cidadão).</li>
+<li>Pelo chat de atendimento do site.</li>
+<li>Pelo SAC, enviando sua solicitação.</li>
+</ul>
+<div style="display:flex; flex-wrap:wrap; gap:12px">
+<a class="btn" href="Atendimento.dc.html" style="background:var(--pb); color:#fff">Solicitar atendimento</a>
+<a class="btn" href="Main.dc.html#faq" style="background:transparent; color:var(--pt); border-color:var(--pt)">Ver perguntas frequentes</a>
+</div>
+<p style="margin:20px 0 0; font-size:0.8125em; color:var(--mu)">Texto de apoio em rascunho — validar com a Secretaria antes da publicação.</p>
+</section>
+</div>
+<sc-if value="{{empty}}" hint-placeholder-val="{{ false }}"><p style="margin-top:24px; padding:24px; text-align:center; border:1px dashed var(--bd); border-radius:8px">Nenhum serviço encontrado. Tente outra palavra.</p></sc-if>
+</main>
+
+<footer style="background:var(--ft); color:#fff; padding:32px 0">
+<div class="ct" style="display:flex; flex-wrap:wrap; gap:24px; justify-content:space-between; font-size:0.875em">
+<span>© 2026 Prefeitura Municipal de Campinas · Secretaria de Trabalho e Renda</span>
+<span style="display:flex; gap:20px; flex-wrap:wrap"><a href="Main.dc.html" style="color:#fff">Início</a><a href="Atendimento.dc.html" style="color:#fff">SAC e Ouvidoria</a><a href="#" style="color:#fff">Política de privacidade (LGPD)</a></span>
+</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1500}}'>
+class Component extends DCLogic {
+  constructor(p){ super(p); this.state = { dark:false, fsStep:0, q:'', sel:0 }; }
+  renderVals(){
+    const s = this.state, self = this;
+    const L = { '--bg':'#F8F8F8','--sf':'#FFFFFF','--fg':'#333333','--mu':'#555555','--pt':'#1351B4','--pb':'#1351B4','--bd':'#CCCCCC','--tint':'#EDF5FF','--nv':'#1351B4','--ft':'#071D41','--hero':'linear-gradient(135deg,#1351B4,#071D41)' };
+    const D = { '--bg':'#0B1424','--sf':'#14223A','--fg':'#E9EEF6','--mu':'#B3BFD1','--pt':'#9DBFF7','--pb':'#2D6BD1','--bd':'#2F4468','--tint':'#1B2D4B','--nv':'#14223A','--ft':'#060C18','--hero':'linear-gradient(135deg,#1C3F7A,#0A1428)' };
+    const th = s.dark ? D : L;
+    const nav = [
+      { label:'Início', href:'Main.dc.html', sub:[] },
+      { label:'Institucional', href:'Institucional.dc.html', sub:[{label:'Sobre o CPAT',href:'Institucional.dc.html'},{label:'Espaço CPAT',href:'#'},{label:'Unidades',href:'Institucional.dc.html'}] },
+      { label:'Serviços', href:'Servicos.dc.html', sub:[] },
+      { label:'Vagas de Emprego', href:'Vagas.dc.html', sub:[] },
+      { label:'Contato', href:'Atendimento.dc.html', sub:[{label:'FAQ',href:'Main.dc.html#faq'},{label:'SAC',href:'Atendimento.dc.html'},{label:'Ouvidoria',href:'Atendimento.dc.html'},{label:'Fale conosco',href:'Atendimento.dc.html'}] }
+    ].map((n,i) => ({ ...n, hasSub: n.sub.length > 0, pop: n.sub.length > 0 ? 'true' : 'false', cur: i===2 ? 'page' : 'false', bar: i===2 ? '#FFCD07' : 'transparent' }));
+    const all = [
+      ['Atendimento ao Trabalhador e ao Empregador','Intermediação de mão de obra: cadastro de currículos, encaminhamento para vagas e captação de vagas junto às empresas.','Trabalhadores em busca de emprego e empresas que querem contratar.','M3 7h18v13H3z M8 7V4h8v3'],
+      ['Seguro-Desemprego','Orientações e apoio no requerimento do benefício para o trabalhador dispensado sem justa causa.','Trabalhadores que atendem às regras do benefício.','M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z'],
+      ['Qualificação Profissional','Cursos e capacitações para ampliar as chances de inserção no mercado de trabalho.','Pessoas em busca de qualificação social e profissional.','M2 9l10-5 10 5-10 5z M6 11v5c3 2 9 2 12 0v-5'],
+      ['Carteira de Trabalho Digital','Orientação para emitir, acessar e atualizar a Carteira de Trabalho Digital.','Qualquer trabalhador.','M14 3H6v18h12V7z M14 3v4h4'],
+      ['Orientação para o Trabalho','Apoio na construção do currículo, preparação para entrevistas e planejamento de carreira.','Quem está começando ou retomando a vida profissional.','M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z M15.5 8.5l-2 5-5 2 2-5z'],
+      ['Casa do Empreendedor','Apoio à formalização e à gestão de pequenos negócios, incluindo o microempreendedor individual (MEI).','Empreendedores e quem deseja abrir um negócio.','M3 9l2-5h14l2 5 M3 9h18v2a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0z M5 13v8h14v-8'],
+      ['Economia Solidária','Fomento a empreendimentos coletivos, cooperativas e associações de geração de renda.','Grupos e coletivos de trabalho e renda.','M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z M23 21v-2a4 4 0 0 0-3-3.9 M16 3.1a4 4 0 0 1 0 7.8'],
+      ['Comissão Municipal de Emprego','Espaço de controle social e acompanhamento das políticas públicas de trabalho e renda do município.','Representantes da sociedade civil, trabalhadores e empresas.','M12 3v18 M5 7h14 M5 7l-3 7a3 3 0 0 0 6 0z M19 7l-3 7a3 3 0 0 0 6 0z'],
+      ['Observatório do Trabalho','Dados, indicadores e estudos sobre o mercado de trabalho de Campinas.','Cidadãos, pesquisadores, gestores e empresas.','M4 20V10 M10 20V4 M16 20v-8 M22 20H2']
+    ].map((a,i) => ({ i, title:a[0], desc:a[1], who:a[2], d:a[3] }));
+    const f = all.filter(a => (a.title + ' ' + a.desc).toLowerCase().includes(s.q.toLowerCase()));
+    const cur = all[s.sel];
+    const list = f.map(a => ({ title:a.title, d:a.d, on: a.i===s.sel ? 'true' : 'false', bg: a.i===s.sel ? 'var(--tint)' : 'var(--sf)', bd: a.i===s.sel ? 'var(--pb)' : 'var(--bd)', pick: () => self.setState({ sel:a.i }) }));
+    return {
+      vars: Object.keys(th).map(k => k + ':' + th[k]).join(';'), fs: 16 + s.fsStep * 2,
+      noop: e => { if (e && e.preventDefault) e.preventDefault(); },
+      fsUp: () => self.setState({ fsStep: Math.min(4, s.fsStep + 1) }), fsDown: () => self.setState({ fsStep: Math.max(-2, s.fsStep - 1) }), fsReset: () => self.setState({ fsStep: 0 }),
+      toggleDark: () => self.setState({ dark: !s.dark }), darkPressed: s.dark ? 'true' : 'false', darkLabel: s.dark ? 'Modo claro' : 'Modo escuro',
+      nav, q: s.q, setQ: e => self.setState({ q: e.target.value }), list, sel: cur, empty: f.length === 0,
+      count: f.length + (f.length === 1 ? ' serviço' : ' serviços')
+    };
+  }
+}
+</script>
+</body>
+</html>

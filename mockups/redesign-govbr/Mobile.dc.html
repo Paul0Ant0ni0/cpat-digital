@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>CPAT Campinas — Protótipo mobile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&display=swap">
+<style>
+body{margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:100px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none;box-sizing:border-box;border:2px solid transparent}
+.ib{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;border-radius:100px;border:0;background:transparent;color:inherit;font:inherit;font-weight:700;cursor:pointer}
+.fld{min-height:44px;padding:0 14px;font:inherit;border:1px solid var(--bd);border-radius:4px;background:var(--bg);color:var(--fg);box-sizing:border-box;width:100%}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #FFCD07;outline-offset:2px}
+</style>
+</helmet>
+<div style="{{vars}}; width:390px; height:844px; position:relative; overflow:hidden; display:flex; flex-direction:column; font-family:'Raleway','Rawline',system-ui,sans-serif; font-size:{{fs}}px; line-height:1.5; background:var(--bg); color:var(--fg)">
+
+<!-- App bar -->
+<header style="flex:none; display:flex; align-items:center; gap:4px; height:60px; padding:0 8px 0 16px; background:var(--sf); border-bottom:1px solid var(--bd)">
+<button onClick="{{goHome}}" aria-label="CPAT SINE — início" style="display:flex; align-items:center; gap:8px; background:none; border:0; padding:0; color:var(--pt); font:inherit; cursor:pointer; min-height:44px">
+<svg width="32" height="32" viewBox="0 0 52 52" fill="none" aria-hidden="true"><path d="M10 24a16 16 0 0 1 32 0z" fill="currentColor"/><rect x="6" y="24" width="40" height="5" rx="2.5" fill="currentColor"/><path d="M14 34h24l-3 16H17z" fill="currentColor"/><path d="M26 34l-4 6 4 10 4-10z" fill="var(--sf)"/></svg>
+<span style="font-size:1.25em; font-weight:800">CPAT <span style="color:var(--fg)">SINE</span></span>
+</button>
+<span style="flex:1"></span>
+<button class="ib" onClick="{{toggleDark}}" aria-pressed="{{darkPressed}}" aria-label="{{darkLabel}}" style="color:var(--pt)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+<button class="ib" onClick="{{openMenu}}" aria-label="Abrir menu" aria-expanded="{{menu}}" style="color:var(--pt)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</header>
+
+<!-- Conteúdo -->
+<main style="flex:1; overflow-y:auto; min-height:0">
+
+<sc-if value="{{isHome}}" hint-placeholder-val="{{ true }}">
+<div style="padding:16px; display:flex; flex-direction:column; gap:24px">
+<form role="search" onSubmit="{{noop}}" style="display:flex">
+<input type="search" aria-label="Pesquisar no site" placeholder="Pesquisar vagas e serviços" style="flex:1; min-width:0; min-height:48px; padding:0 18px; font:inherit; border:1px solid var(--bd); border-right:0; border-radius:100px 0 0 100px; background:var(--sf); color:var(--fg)">
+<button type="submit" class="btn" aria-label="Pesquisar" style="border-radius:0 100px 100px 0; padding:0 16px; background:var(--pb); color:#fff"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3"/></svg></button>
+</form>
+
+<section aria-roledescription="carrossel" aria-label="Destaques" style="background:var(--hero); color:#fff; border-radius:12px; padding:20px">
+<svg viewBox="0 0 480 300" width="100%" style="display:block; max-width:260px; height:auto; margin:0 auto 12px" role="img" aria-label="Ilustração de um trabalhador de capacete diante de prédios e cartões de vagas"><circle cx="240" cy="160" r="130" fill="#fff" fill-opacity=".1"/><g fill="#fff" fill-opacity=".2"><rect x="30" y="170" width="54" height="130"/><rect x="92" y="120" width="62" height="180"/><rect x="350" y="140" width="58" height="160"/><rect x="416" y="196" width="40" height="104"/></g><rect x="20" y="296" width="440" height="4" rx="2" fill="#fff" fill-opacity=".35"/><path d="M185 296v-84a55 55 0 0 1 110 0v84z" fill="#fff"/><path d="M240 176l-8 12 8 56 8-56z" fill="#071D41"/><rect x="229" y="152" width="22" height="24" rx="8" fill="#D9A273"/><circle cx="240" cy="136" r="28" fill="#D9A273"/><path d="M208 130a32 32 0 0 1 64 0z" fill="#FFCD07"/><rect x="200" y="128" width="80" height="8" rx="4" fill="#E9B800"/><rect x="235" y="98" width="10" height="34" rx="3" fill="#E9B800"/><circle cx="231" cy="144" r="3" fill="#071D41"/><circle cx="249" cy="144" r="3" fill="#071D41"/><path d="M233 153q7 6 14 0" stroke="#071D41" stroke-width="3" fill="none" stroke-linecap="round"/><g transform="translate(24 40)"><rect width="120" height="76" rx="12" fill="#fff"/><circle cx="26" cy="26" r="12" fill="#FFCD07"/><rect x="46" y="16" width="60" height="9" rx="4.5" fill="#1351B4"/><rect x="46" y="32" width="40" height="7" rx="3.5" fill="#C9D6EC"/></g><rect x="338" y="36" width="110" height="64" rx="12" fill="#FFCD07"/></svg>
+<span style="display:inline-block; background:#FFCD07; color:#071D41; font-weight:800; font-size:0.6875em; letter-spacing:0.08em; padding:3px 10px; border-radius:100px">{{cur.tag}}</span>
+<h1 style="margin:12px 0 8px; font-size:1.5em; line-height:1.2; font-weight:800">{{cur.title}}</h1>
+<p style="margin:0 0 16px; font-size:0.9375em">{{cur.text}}</p>
+<div style="display:flex; align-items:center; justify-content:space-between">
+<button class="btn" onClick="{{cur.go}}" style="background:#fff; color:#071D41; min-height:40px">{{cur.cta}}</button>
+<div style="display:flex; align-items:center">
+<button class="ib" onClick="{{prev}}" aria-label="Destaque anterior"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+<sc-for list="{{dots}}" as="d" hint-placeholder-count="3"><span aria-hidden="true" style="display:block; width:{{d.w}}px; height:8px; margin:0 2px; border-radius:100px; background:{{d.bg}}"></span></sc-for>
+<button class="ib" onClick="{{next}}" aria-label="Próximo destaque"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="m-h1">
+<h2 id="m-h1" style="margin:0 0 12px; font-size:1.25em; font-weight:800; color:var(--pt)">Acesso rápido</h2>
+<div style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px">
+<sc-for list="{{quick}}" as="q" hint-placeholder-count="4">
+<button onClick="{{q.go}}" style="display:flex; flex-direction:column; align-items:flex-start; gap:8px; min-height:104px; padding:16px; text-align:left; font:inherit; background:var(--sf); color:var(--fg); border:1px solid var(--bd); border-radius:8px; cursor:pointer">
+<span style="display:inline-flex; width:40px; height:40px; align-items:center; justify-content:center; border-radius:100px; background:var(--tint); color:var(--pt)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{q.d}}"/></svg></span>
+<strong style="font-size:0.9375em; color:var(--pt)">{{q.t}}</strong>
+</button>
+</sc-for>
+</div>
+</section>
+
+<section aria-labelledby="m-h2">
+<div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:12px"><h2 id="m-h2" style="margin:0; font-size:1.25em; font-weight:800; color:var(--pt)">Vagas</h2><span style="font-size:0.875em; color:var(--mu)"><strong style="color:var(--fg)">1.585</strong> disponíveis</span></div>
+<div style="display:flex; flex-direction:column; gap:12px">
+<sc-for list="{{vagas}}" as="v" hint-placeholder-count="2">
+<article style="background:var(--sf); border:1px solid var(--bd); border-left:5px solid var(--pb); border-radius:8px; padding:16px"><h3 style="margin:0; font-size:1em; font-weight:800; color:var(--pt)">{{v.t}}</h3><div style="font-weight:800; font-size:1.125em">{{v.s}}</div><div style="font-size:0.8125em; color:var(--mu)">{{v.i}}</div></article>
+</sc-for>
+<button class="btn" onClick="{{toVagas}}" style="background:var(--pb); color:#fff">Ver todas as vagas</button>
+</div>
+</section>
+
+<section aria-labelledby="m-h3">
+<h2 id="m-h3" style="margin:0 0 12px; font-size:1.25em; font-weight:800; color:var(--pt)">Notícias</h2>
+<div style="display:flex; flex-direction:column; gap:12px">
+<sc-for list="{{news}}" as="n" hint-placeholder-count="2">
+<article style="background:var(--sf); border:1px solid var(--bd); border-radius:8px; padding:16px"><div style="font-size:0.75em; color:var(--mu)"><strong style="color:var(--pt)">{{n.c}}</strong> · {{n.d}}</div><h3 style="margin:4px 0 0; font-size:0.9375em; line-height:1.35">{{n.t}}</h3></article>
+</sc-for>
+</div>
+</section>
+
+<section aria-labelledby="m-h4" style="background:var(--tint); border-radius:12px; padding:20px">
+<h2 id="m-h4" style="margin:0 0 4px; font-size:1.125em; font-weight:800; color:var(--pt)">Quem encontrou oportunidade</h2>
+<p style="margin:0 0 12px; font-size:0.75em; color:var(--mu)">Texto ilustrativo — trocar por depoimento real.</p>
+<blockquote aria-live="polite" style="margin:0 0 12px">“{{dep.text}}”</blockquote>
+<div style="display:flex; align-items:center; justify-content:space-between"><strong style="color:var(--pt); font-size:0.875em">{{dep.name}}</strong><span><button class="ib" onClick="{{dPrev}}" aria-label="Depoimento anterior"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--pt)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="ib" onClick="{{dNext}}" aria-label="Próximo depoimento"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--pt)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button></span></div>
+</section>
+
+<footer style="background:var(--ft); color:#fff; border-radius:12px; padding:20px; font-size:0.8125em">
+<strong style="font-size:1.125em">Unidades</strong>
+<p style="margin:8px 0 0">Centro · Av. Campos Salles, 427<br>Ouro Verde · Hortoshopping, 2º andar<br>Campo Grande · R. Manoel Machado Pereira, 902<br>2ª a 6ª, 8h às 16h (Centro: 7h30 às 16h30)</p>
+</footer>
+</div>
+</sc-if>
+
+<sc-if value="{{isServ}}" hint-placeholder-val="{{ false }}">
+<div style="padding:16px; display:flex; flex-direction:column; gap:12px">
+<h1 style="margin:0 0 4px; font-size:1.75em; font-weight:800; color:var(--pt)">Serviços</h1>
+<sc-for list="{{servs}}" as="s" hint-placeholder-count="9">
+<div style="background:var(--sf); border:1px solid var(--bd); border-radius:8px">
+<button onClick="{{s.pick}}" aria-expanded="{{s.open}}" style="display:flex; width:100%; align-items:center; gap:12px; min-height:64px; padding:12px 16px; font:inherit; text-align:left; background:none; color:var(--fg); border:0; cursor:pointer"><span style="flex:none; display:inline-flex; width:40px; height:40px; align-items:center; justify-content:center; border-radius:100px; background:var(--tint); color:var(--pt)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{s.d}}"/></svg></span><strong style="flex:1; color:var(--pt); font-size:0.9375em">{{s.t}}</strong><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--pt)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform:{{s.rot}}"><path d="M6 9l6 6 6-6"/></svg></button>
+<sc-if value="{{s.open}}" hint-placeholder-val="{{ false }}"><div style="padding:0 16px 16px; font-size:0.9375em; color:var(--mu)">{{s.x}}<div style="margin-top:12px"><button class="btn" onClick="{{toAtend}}" style="background:var(--pb); color:#fff; min-height:40px">Solicitar atendimento</button></div></div></sc-if>
+</div>
+</sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{isVagas}}" hint-placeholder-val="{{ false }}">
+<div style="padding:16px; display:flex; flex-direction:column; gap:12px">
+<h1 style="margin:0; font-size:1.75em; font-weight:800; color:var(--pt)">Vagas de emprego</h1>
+<label for="m-q" style="font-weight:700; font-size:0.875em">Título da vaga</label>
+<input id="m-q" class="fld" value="{{q}}" onInput="{{setQ}}" placeholder="Ex.: atendente">
+<p aria-live="polite" style="margin:0; font-weight:700; font-size:0.875em">{{vcount}}</p>
+<sc-for list="{{vrows}}" as="v" hint-placeholder-count="4">
+<article style="background:var(--sf); border:1px solid var(--bd); border-left:5px solid var(--pb); border-radius:8px; padding:16px; display:flex; flex-direction:column; gap:4px"><h2 style="margin:0; font-size:1em; font-weight:800; color:var(--pt)">{{v.t}}</h2><div style="font-weight:800; font-size:1.125em">{{v.s}}</div><div style="font-size:0.8125em; color:var(--mu)">{{v.i}}</div><button class="btn" onClick="{{toAtend}}" style="margin-top:8px; background:transparent; color:var(--pt); border-color:var(--pt); min-height:40px">Quero me candidatar</button></article>
+</sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{isFaq}}" hint-placeholder-val="{{ false }}">
+<div style="padding:16px">
+<h1 style="margin:0 0 12px; font-size:1.75em; font-weight:800; color:var(--pt)">Perguntas frequentes</h1>
+<div style="border-top:1px solid var(--bd)">
+<sc-for list="{{faq}}" as="f" hint-placeholder-count="4">
+<div style="border-bottom:1px solid var(--bd)"><h2 style="margin:0"><button onClick="{{f.pick}}" aria-expanded="{{f.open}}" style="display:flex; width:100%; align-items:center; justify-content:space-between; gap:12px; min-height:56px; padding:12px 0; background:none; border:0; font:inherit; font-weight:700; text-align:left; color:var(--fg); cursor:pointer">{{f.q}}<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--pt)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none; transform:{{f.rot}}"><path d="M6 9l6 6 6-6"/></svg></button></h2>
+<sc-if value="{{f.open}}" hint-placeholder-val="{{ false }}"><p style="margin:0; padding:0 0 16px; color:var(--mu)">{{f.a}}</p></sc-if></div>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isInst}}" hint-placeholder-val="{{ false }}">
+<div style="padding:16px; display:flex; flex-direction:column; gap:16px">
+<h1 style="margin:0; font-size:1.75em; font-weight:800; color:var(--pt)">Institucional</h1>
+<p style="margin:0">A Secretaria Municipal de Trabalho e Renda (SMTR), criada em dezembro de 2008, promove a inserção produtiva de pessoas e famílias de Campinas, priorizando quem está em maior vulnerabilidade social.</p>
+<p style="margin:0">O CPAT opera o Sistema Público de Emprego, Trabalho e Renda: intermediação de mão de obra, seguro-desemprego, qualificação e informações sobre o mercado de trabalho.</p>
+<ol style="list-style:none; margin:0; padding:0 0 0 0; border-left:4px solid var(--pb); display:flex; flex-direction:column; gap:16px">
+<li style="padding-left:16px"><strong style="color:var(--pt)">16/08/2008</strong><br>Inauguração do CPAT.</li>
+<li style="padding-left:16px"><strong style="color:var(--pt)">31/03/2010</strong><br>Novo posto no Jd. Ouro Verde.</li>
+<li style="padding-left:16px"><strong style="color:var(--pt)">Recentemente</strong><br>Terceira unidade, no Campo Grande.</li>
+</ol>
+</div>
+</sc-if>
+
+<sc-if value="{{isAtend}}" hint-placeholder-val="{{ false }}">
+<div style="padding:16px; display:flex; flex-direction:column; gap:16px">
+<h1 style="margin:0; font-size:1.75em; font-weight:800; color:var(--pt)">Atendimento</h1>
+<div role="tablist" aria-label="Canais" style="display:flex; background:var(--tint); border-radius:100px; padding:4px">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="3"><button role="tab" onClick="{{t.pick}}" aria-selected="{{t.on}}" style="flex:1; min-height:44px; border:0; border-radius:100px; font:inherit; font-weight:700; font-size:0.875em; background:{{t.bg}}; color:{{t.fg}}; cursor:pointer">{{t.l}}</button></sc-for>
+</div>
+<sc-if value="{{sent}}" hint-placeholder-val="{{ false }}"><div role="status" style="background:var(--ok); color:var(--okt); border-left:6px solid #168821; border-radius:4px; padding:16px"><strong>Mensagem enviada.</strong><br>Protocolo CPAT-2026-000123 (exemplo).<br><button onClick="{{again}}" class="btn" style="margin-top:8px; min-height:36px; background:transparent; color:inherit; border-color:currentColor">Nova mensagem</button></div></sc-if>
+<sc-if value="{{notSent}}" hint-placeholder-val="{{ true }}">
+<form onSubmit="{{submit}}" style="display:flex; flex-direction:column; gap:12px">
+<label for="m-n" style="font-weight:700; font-size:0.875em">Nome *</label><input id="m-n" class="fld" required>
+<label for="m-e" style="font-weight:700; font-size:0.875em">E-mail *</label><input id="m-e" type="email" class="fld" required>
+<label for="m-m" style="font-weight:700; font-size:0.875em">Mensagem *</label><textarea id="m-m" rows="4" required style="padding:12px 14px; font:inherit; border:1px solid var(--bd); border-radius:4px; background:var(--bg); color:var(--fg)"></textarea>
+<button type="submit" class="btn" style="background:var(--pb); color:#fff">Enviar mensagem</button>
+</form>
+</sc-if>
+</div>
+</sc-if>
+</main>
+
+<!-- Navegação inferior -->
+<nav aria-label="Navegação principal" style="flex:none; display:flex; background:var(--sf); border-top:1px solid var(--bd); height:64px">
+<sc-for list="{{tabbar}}" as="b" hint-placeholder-count="4">
+<button onClick="{{b.go}}" aria-current="{{b.cur}}" style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; border:0; background:none; font:inherit; font-size:0.6875em; font-weight:700; color:{{b.fg}}; cursor:pointer; border-top:3px solid {{b.bar}}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{b.d}}"/></svg>{{b.l}}</button>
+</sc-for>
+</nav>
+
+<!-- Chat -->
+<button onClick="{{toggleChat}}" aria-label="Abrir chat de atendimento" aria-expanded="{{chat}}" style="position:absolute; right:16px; bottom:80px; width:56px; height:56px; border-radius:100px; border:0; background:#E97F02; color:#000; box-shadow:0 4px 14px rgba(0,0,0,.35); display:flex; align-items:center; justify-content:center; cursor:pointer"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></button>
+<sc-if value="{{chat}}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-label="Chat de atendimento" style="position:absolute; left:0; right:0; bottom:0; background:var(--sf); border-top:1px solid var(--bd); border-radius:16px 16px 0 0; box-shadow:0 -8px 28px rgba(0,0,0,.35); z-index:5">
+<div style="background:var(--pb); color:#fff; padding:14px 16px; font-weight:700; border-radius:16px 16px 0 0; display:flex; justify-content:space-between; align-items:center">Atendimento CPAT · online<button class="ib" onClick="{{toggleChat}}" aria-label="Fechar chat" style="min-width:36px; min-height:36px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+<div style="padding:16px; display:flex; flex-direction:column; gap:10px"><div style="background:var(--tint); padding:10px 14px; border-radius:12px 12px 12px 2px; align-self:flex-start; max-width:85%">Olá! Como posso ajudar?</div><div style="display:flex; flex-wrap:wrap; gap:6px"><span style="border:1px solid var(--pt); color:var(--pt); border-radius:100px; padding:6px 12px; font-size:0.8125em">Procurar vaga</span><span style="border:1px solid var(--pt); color:var(--pt); border-radius:100px; padding:6px 12px; font-size:0.8125em">Seguro-desemprego</span><span style="border:1px solid var(--pt); color:var(--pt); border-radius:100px; padding:6px 12px; font-size:0.8125em">MEI</span></div></div>
+<div style="display:flex; border-top:1px solid var(--bd)"><input aria-label="Escreva sua mensagem" placeholder="Escreva sua mensagem…" style="flex:1; min-width:0; min-height:52px; padding:0 16px; border:0; font:inherit; background:var(--sf); color:var(--fg)"><button class="ib" aria-label="Enviar" style="color:var(--pt); min-height:52px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></button></div>
+</div>
+</sc-if>
+
+<!-- Menu (drawer) -->
+<sc-if value="{{menu}}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute; inset:0; z-index:10; background:rgba(0,0,0,.55)">
+<div role="dialog" aria-label="Menu" style="position:absolute; top:0; right:0; bottom:0; width:310px; background:var(--sf); display:flex; flex-direction:column; box-shadow:-8px 0 24px rgba(0,0,0,.35)">
+<div style="display:flex; align-items:center; justify-content:space-between; padding:8px 8px 8px 20px; background:var(--nv); color:#fff"><strong>Menu</strong><button class="ib" onClick="{{closeMenu}}" aria-label="Fechar menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+<ul style="list-style:none; margin:0; padding:8px 0; flex:1; overflow-y:auto">
+<sc-for list="{{menuItems}}" as="m" hint-placeholder-count="7"><li><button onClick="{{m.go}}" style="display:flex; align-items:center; width:100%; min-height:52px; padding:0 20px; background:none; border:0; border-left:4px solid {{m.bar}}; font:inherit; font-weight:700; color:var(--fg); text-align:left; cursor:pointer">{{m.l}}</button></li></sc-for>
+</ul>
+<div style="padding:16px 20px; border-top:1px solid var(--bd); display:flex; flex-direction:column; gap:12px">
+<div style="display:flex; align-items:center; justify-content:space-between"><span style="font-weight:700">Tamanho do texto</span><span style="display:flex; gap:4px"><button class="ib" onClick="{{fsDown}}" aria-label="Diminuir fonte" style="border:1px solid var(--bd)">A−</button><button class="ib" onClick="{{fsUp}}" aria-label="Aumentar fonte" style="border:1px solid var(--bd)">A+</button></span></div>
+<button class="btn" onClick="{{toggleDark}}" aria-pressed="{{darkPressed}}" style="background:transparent; color:var(--pt); border-color:var(--pt)">{{darkLabel}}</button>
+</div>
+</div>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"startDark":{"editor":"boolean","default":false,"section":"Tema"}}'>
+class Component extends DCLogic {
+  constructor(p){ super(p); this.state = { dark: !!(p && p.startDark), fsStep:0, screen:'home', menu:false, chat:false, slide:0, dep:0, open:-1, faq:0, q:'', tab:'SAC', sent:false }; }
+  componentDidMount(){ this.timer = setInterval(() => { if (this.state.screen==='home' && !this.state.menu) this.setState({ slide:(this.state.slide+1)%3 }); }, 6000); }
+  componentWillUnmount(){ clearInterval(this.timer); }
+  renderVals(){
+    const s = this.state, self = this;
+    const L = { '--bg':'#F8F8F8','--sf':'#FFFFFF','--fg':'#333333','--mu':'#555555','--pt':'#1351B4','--pb':'#1351B4','--bd':'#CCCCCC','--tint':'#EDF5FF','--nv':'#1351B4','--ft':'#071D41','--hero':'linear-gradient(135deg,#1351B4,#071D41)','--ok':'#E3F5E1','--okt':'#1B4D1F' };
+    const D = { '--bg':'#0B1424','--sf':'#14223A','--fg':'#E9EEF6','--mu':'#B3BFD1','--pt':'#9DBFF7','--pb':'#2D6BD1','--bd':'#2F4468','--tint':'#1B2D4B','--nv':'#14223A','--ft':'#060C18','--hero':'linear-gradient(135deg,#1C3F7A,#0A1428)','--ok':'#12301A','--okt':'#BDEFC4' };
+    const th = s.dark ? D : L;
+    const go = sc => () => self.setState({ screen:sc, menu:false, chat:false });
+    const slides = [
+      { tag:'EVENTO', title:'22º Feirão de Emprego', text:'Mais de 1.000 vagas. 13 de novembro, das 9h às 16h, no SEST/SENAT Campinas.', cta:'Ver vagas', go:go('vagas') },
+      { tag:'ATENDIMENTO', title:'Fale conosco pelo chat', text:'Vagas, seguro-desemprego, empresas e MEI. Ou agende o atendimento presencial.', cta:'Ver canais', go:go('atend') },
+      { tag:'UNIDADES', title:'3 unidades em Campinas', text:'Centro, Ouro Verde e Campo Grande. Atendimento mediante agendamento.', cta:'Institucional', go:go('inst') }
+    ];
+    const IC = { home:'M3 11l9-8 9 8v10H3z M9 21v-6h6v6', serv:'M3 7h18v13H3z M8 7V4h8v3', vagas:'M4 4h16v16H4z M8 9h8 M8 13h8 M8 17h5', atend:'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z' };
+    const tabbar = [['home','Início'],['serv','Serviços'],['vagas','Vagas'],['atend','Atender']].map(b => ({ l:b[1], d:IC[b[0]], go:go(b[0]), cur: s.screen===b[0] ? 'page' : 'false', fg: s.screen===b[0] ? 'var(--pt)' : 'var(--mu)', bar: s.screen===b[0] ? 'var(--pb)' : 'transparent' }));
+    const menuItems = [['home','Início'],['inst','Institucional'],['serv','Serviços'],['vagas','Vagas de emprego'],['faq','Perguntas frequentes'],['atend','SAC'],['atend','Ouvidoria'],['atend','Contato']].map(m => ({ l:m[1], go: () => self.setState({ screen:m[0], menu:false, tab: m[1]==='Ouvidoria' ? 'Ouvidoria' : m[1]==='Contato' ? 'Contato' : 'SAC' }), bar: s.screen===m[0] ? 'var(--pb)' : 'transparent' }));
+    const svc = [
+      ['Atendimento ao Trabalhador e ao Empregador','Intermediação de mão de obra e cadastro de vagas.','M3 7h18v13H3z M8 7V4h8v3'],
+      ['Seguro-Desemprego','Orientação e apoio no requerimento do benefício.','M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z'],
+      ['Qualificação Profissional','Cursos e capacitações para o mercado de trabalho.','M2 9l10-5 10 5-10 5z M6 11v5c3 2 9 2 12 0v-5'],
+      ['Carteira de Trabalho Digital','Orientação para emitir e acessar sua CTPS Digital.','M14 3H6v18h12V7z M14 3v4h4'],
+      ['Orientação para o Trabalho','Currículo, entrevista e planejamento de carreira.','M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z M15.5 8.5l-2 5-5 2 2-5z'],
+      ['Casa do Empreendedor','Formalização e apoio ao MEI.','M3 9l2-5h14l2 5 M3 9h18v2a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0z M5 13v8h14v-8'],
+      ['Economia Solidária','Fomento a empreendimentos coletivos.','M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z'],
+      ['Comissão Municipal de Emprego','Controle social das políticas de trabalho e renda.','M12 3v18 M5 7h14 M5 7l-3 7a3 3 0 0 0 6 0z M19 7l-3 7a3 3 0 0 0 6 0z'],
+      ['Observatório do Trabalho','Indicadores do mercado de trabalho local.','M4 20V10 M10 20V4 M16 20v-8 M22 20H2']
+    ];
+    const all = [['Açougueiro','R$ 3.186,35','Campinas · Médio completo'],['Ajudante de carga e descarga','R$ 2.124,98','Hortolândia · Fundamental incompleto'],['Ajudante de cozinha','R$ 2.460,47','Campinas · Fundamental completo'],['Almoxarife','R$ 2.440,28','Valinhos · Médio completo'],['Assistente administrativo','R$ 2.245,00','Campinas · Médio completo'],['Atendente de farmácia','R$ 2.076,24','Campinas · Médio completo']].map(a => ({ t:a[0], s:a[1], i:a[2] }));
+    const vr = all.filter(v => v.t.toLowerCase().includes(s.q.toLowerCase()));
+    const deps = [{ text:'Saí do atendimento com o currículo revisado e encaminhada para uma entrevista.', name:'Maria S.' },{ text:'Pelo chat tirei minhas dúvidas sem perder o dia na fila.', name:'João P.' },{ text:'No Feirão conversei com várias empresas e fui contratado na semana seguinte.', name:'Anderson L.' }];
+    const faqs = [['Como me candidato a uma vaga?','Consulte as vagas e agende atendimento em uma unidade para receber o encaminhamento.'],['Como peço o seguro-desemprego?','Pelo app Carteira de Trabalho Digital, pelo Emprega Brasil ou com apoio do CPAT. Confirmar prazos com a SMTR.'],['Como agendar atendimento?','Pelo Portal do Cidadão ou pelo chat.'],['Qual o horário das unidades?','Centro: 7h30–16h30. Ouro Verde e Campo Grande: 8h–16h. Na última 6ª do mês encerra mais cedo.']];
+    return {
+      vars: Object.keys(th).map(k => k + ':' + th[k]).join(';'), fs: 15 + s.fsStep * 2,
+      noop: e => { if (e && e.preventDefault) e.preventDefault(); },
+      toggleDark: () => self.setState({ dark:!s.dark }), darkPressed: s.dark ? 'true' : 'false', darkLabel: s.dark ? 'Ativar modo claro' : 'Ativar modo escuro',
+      fsUp: () => self.setState({ fsStep: Math.min(4, s.fsStep+1) }), fsDown: () => self.setState({ fsStep: Math.max(-2, s.fsStep-1) }),
+      goHome: go('home'), openMenu: () => self.setState({ menu:true }), closeMenu: () => self.setState({ menu:false }), menu: s.menu,
+      isHome: s.screen==='home', isServ: s.screen==='serv', isVagas: s.screen==='vagas', isFaq: s.screen==='faq', isInst: s.screen==='inst', isAtend: s.screen==='atend',
+      cur: slides[s.slide], prev: () => self.setState({ slide:(s.slide+2)%3 }), next: () => self.setState({ slide:(s.slide+1)%3 }),
+      dots: slides.map((x,i) => ({ w: i===s.slide ? 22 : 8, bg: i===s.slide ? '#FFCD07' : 'rgba(255,255,255,.6)' })),
+      quick: [{ t:'Ver vagas', d:IC.vagas, go:go('vagas') },{ t:'Seguro-desemprego', d:svc[1][2], go:go('serv') },{ t:'Serviços', d:IC.serv, go:go('serv') },{ t:'SAC e Ouvidoria', d:IC.atend, go:go('atend') }],
+      vagas: all.slice(0,2), toVagas: go('vagas'), toAtend: go('atend'),
+      news: [{ c:'Feirão', d:'10/11/2026', t:'Campinas realiza 22º Feirão de Emprego com mais de 1.000 vagas' },{ c:'Economia', d:'06/11/2026', t:'Campinas registra alta de 136% no saldo de empregos formais no terceiro trimestre' }],
+      dep: deps[s.dep], dPrev: () => self.setState({ dep:(s.dep+2)%3 }), dNext: () => self.setState({ dep:(s.dep+1)%3 }),
+      servs: svc.map((a,i) => ({ t:a[0], x:a[1], d:a[2], open: s.open===i, rot: s.open===i ? 'rotate(180deg)' : 'none', pick: () => self.setState({ open: s.open===i ? -1 : i }) })),
+      q: s.q, setQ: e => self.setState({ q:e.target.value }), vrows: vr, vcount: vr.length + (vr.length===1 ? ' vaga encontrada' : ' vagas encontradas'),
+      faq: faqs.map((f,i) => ({ q:f[0], a:f[1], open: s.faq===i, rot: s.faq===i ? 'rotate(180deg)' : 'none', pick: () => self.setState({ faq: s.faq===i ? -1 : i }) })),
+      tabs: ['SAC','Ouvidoria','Contato'].map(t => ({ l:t, on: s.tab===t ? 'true' : 'false', bg: s.tab===t ? 'var(--pb)' : 'transparent', fg: s.tab===t ? '#fff' : 'var(--pt)', pick: () => self.setState({ tab:t, sent:false }) })),
+      sent: s.sent, notSent: !s.sent, submit: e => { if (e && e.preventDefault) e.preventDefault(); self.setState({ sent:true }); }, again: () => self.setState({ sent:false }),
+      tabbar, menuItems, chat: s.chat, toggleChat: () => self.setState({ chat:!s.chat })
+    };
+  }
+}
+</script>
+</body>
+</html>
