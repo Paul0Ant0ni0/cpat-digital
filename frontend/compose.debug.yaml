@@ -1,0 +1,6 @@
+services:
+  cpatdigital:
+    image: cpatdigital
+    build:
+      context: .
+      dockerfile: ./Dockerfile
