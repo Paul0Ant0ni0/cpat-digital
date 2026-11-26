@@ -3,7 +3,7 @@
 /* Modo escuro por classe (<html class="dark">) */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Tokens do GovDS e do CPAT. Ver docs/briefing.md e docs/identidade-visual.md */
+/* Tokens do GovDS e do CPAT. Ver docs/briefing.mdW e docs/identidade-visual.md */
 @theme {
   --color-primaria: var(--cpat-primaria);
   --color-primaria-texto: var(--cpat-primaria-texto);
