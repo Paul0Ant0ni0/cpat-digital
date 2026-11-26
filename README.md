@@ -96,7 +96,7 @@ Os arquivos `.dc.html` são exportações de canvas do Claude Design e abrem nel
 
 ## Stack prevista
 
-- **v1 (só front-end):** Angular + Tailwind CSS, seguindo o Gov.br Design System (GovDS) e o Design System do CPAT; dados de vagas em JSON de exemplo atrás de um serviço.
+- **v1 (só front-end):** Angular 22 + Tailwind CSS 4 (projeto em [`frontend/`](frontend/)), seguindo o Gov.br Design System (GovDS) e o Design System do CPAT; dados de vagas em JSON de exemplo atrás de um serviço.
 - **v2:** back-end e API de vagas (hipótese: Ruby on Rails e PostgreSQL), envio real de SAC e Ouvidoria e integração com o Emprega Brasil.
 
 ## Identidade visual

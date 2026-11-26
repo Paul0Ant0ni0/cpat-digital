@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+/* Modo escuro por classe (<html class="dark">) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Tokens do GovDS e do CPAT. Ver docs/briefing.md e docs/identidade-visual.md */
+@theme {
+  --color-primaria: var(--cpat-primaria);
+  --color-primaria-texto: var(--cpat-primaria-texto);
+  --color-azul-profundo: var(--cpat-azul-profundo);
+  --color-destaque: var(--cpat-destaque);
+  --color-fundo: var(--cpat-fundo);
+  --color-superficie: var(--cpat-superficie);
+  --color-texto: var(--cpat-texto);
+  --color-texto-suave: var(--cpat-texto-suave);
+  --color-borda-campo: var(--cpat-borda-campo);
+
+  --font-sans: "Raleway", "Rawline", system-ui, sans-serif;
+  --container-pagina: 1120px;
+}
+
+:root {
+  --cpat-primaria: #1351b4;
+  --cpat-primaria-texto: #1351b4;
+  --cpat-azul-profundo: #071d41;
+  --cpat-destaque: #ffcd07;
+  --cpat-fundo: #f8f8f8;
+  --cpat-superficie: #ffffff;
+  --cpat-texto: #1b1b1b;
+  --cpat-texto-suave: #555555;
+  --cpat-borda-campo: #767676;
+  /* A−/A+: a fonte raiz muda e tudo em rem acompanha */
+  --cpat-fonte-base: 16px;
+}
+
+.dark {
+  --cpat-primaria: #2d6bd1;
+  --cpat-primaria-texto: #9dbff7;
+  --cpat-azul-profundo: #060c18;
+  --cpat-destaque: #ffcd07;
+  --cpat-fundo: #0b1424;
+  --cpat-superficie: #14223a;
+  --cpat-texto: #eef2f8;
+  --cpat-texto-suave: #b4c0d4;
+  --cpat-borda-campo: #8397b8;
+}
+
+html {
+  font-size: var(--cpat-fonte-base);
+}
+
+body {
+  margin: 0;
+  background: var(--cpat-fundo);
+  color: var(--cpat-texto);
+  font-family: var(--font-sans);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--cpat-destaque);
+  outline-offset: 2px;
+}
