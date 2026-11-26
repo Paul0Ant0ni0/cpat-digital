@@ -8,11 +8,70 @@ Projeto de modernização digital do CPAT Campinas (Centro Público de Apoio ao 
 
 O site atual é antigo, pouco funcional e não atende critérios de acessibilidade. O objetivo é entregar um site moderno que ajude o cidadão a encontrar vagas, entender os serviços e falar com a Prefeitura, seguindo o Gov.br Design System, WCAG 2.1 AA e eMAG.
 
+## Antes e depois
+
+Na coluna "antes", os prints do site atual trazem anotações de problemas de interface (UI Annotation). Cada número aponta para um problema listado ao lado.
+
+### Home
+
+![Home: antes e depois](docs/img/comparativo/home.png)
+
+Anotações completas do site atual: [`antes-home.png`](docs/img/antes/antes-home.png)
+
+### Vagas de emprego
+
+![Vagas: antes e depois](docs/img/comparativo/vagas.png)
+
+Anotações completas do site atual: [`antes-vagas.png`](docs/img/antes/antes-vagas.png)
+
+### Serviços
+
+![Serviços: antes e depois](docs/img/comparativo/servicos.png)
+
+Anotações completas do site atual: [`antes-servicos.png`](docs/img/antes/antes-servicos.png)
+
+## Telas do redesign
+
+Protótipo seguindo o Gov.br Design System, com modo claro e escuro, ajuste de fonte (A−/A+) e VLibras. Os arquivos editáveis estão em [`mockups/redesign-govbr/`](mockups/redesign-govbr/).
+
+| Home (claro) | Home (escuro) |
+| --- | --- |
+| ![Home](docs/img/depois/home.png) | ![Home escuro](docs/img/depois/home-escuro.png) |
+
+| Vagas de emprego | Serviços |
+| --- | --- |
+| ![Vagas](docs/img/depois/vagas.png) | ![Serviços](docs/img/depois/servicos.png) |
+
+| Atendimento (SAC e Ouvidoria) | Institucional |
+| --- | --- |
+| ![Atendimento](docs/img/depois/atendimento.png) | ![Institucional](docs/img/depois/institucional.png) |
+
+| Mobile (claro) | Mobile (escuro) |
+| --- | --- |
+| <img src="docs/img/depois/mobile.png" width="320" alt="Mobile claro"> | <img src="docs/img/depois/mobile-escuro.png" width="320" alt="Mobile escuro"> |
+
+Design System: [ver página completa](docs/img/depois/design-system.png)
+
+## Nova identidade visual
+
+Brand Book proposto, com o conceito "Oportunidades que conectam pessoas". Texto de apoio em [docs/identidade-visual.md](docs/identidade-visual.md).
+
+![Capa do Brand Book](docs/img/identidade/capa.png)
+
+| | |
+| --- | --- |
+| ![Conceito](docs/img/identidade/conceito.png) | ![Logotipo](docs/img/identidade/logotipo.png) |
+| ![Cores](docs/img/identidade/cores.png) | ![Tipografia](docs/img/identidade/tipografia.png) |
+| ![Elementos gráficos](docs/img/identidade/elementos.png) | ![Ilustrações](docs/img/identidade/ilustracoes.png) |
+| ![Ícones](docs/img/identidade/icones.png) | ![Aplicações 1](docs/img/identidade/aplicacoes-1.png) |
+
+![Aplicações 2](docs/img/identidade/aplicacoes-2.png)
+
 ## Estrutura do repositório
 
 ```
 cpat-digital/
-├── docs/        # Documentação (briefing, requisitos, identidade visual)
+├── docs/        # Documentação (briefing, requisitos, identidade visual) e imagens (docs/img)
 ├── design/      # Identidade visual (Brand Book) e referências
 ├── assets/      # Logos, ícones e ilustrações
 ├── flyers/      # Flyers e materiais gráficos
